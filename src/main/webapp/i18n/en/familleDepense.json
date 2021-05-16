@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "familleDepense" : {
+            "home": {
+                "title": "Famille Depenses",
+                "createLabel": "Create a new Famille Depense",
+                "createOrEditLabel": "Create or edit a Famille Depense",
+                "search": "Search for Famille Depense"
+            },
+            "created": "A new Famille Depense is created with identifier {{ param }}",
+            "updated": "A Famille Depense is updated with identifier {{ param }}",
+            "deleted": "A Famille Depense is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Famille Depense {{ id }}?"
+            },
+            "detail": {
+                "title": "Famille Depense"
+            },
+            "designationFamille": "Designation Famille"
+        }
+    }
+}

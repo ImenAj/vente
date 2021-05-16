@@ -1,0 +1,35 @@
+
+<div>
+    <h2><span data-translate="pfeApp.bons_de_Reception.detail.title">Bons De Reception</span> {{vm.bons_de_Reception.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.bons_de_Reception.dateReception">Date Reception</span></dt>
+        <dd>
+            <span>{{vm.bons_de_Reception.dateReception | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_Reception.objet">Objet</span></dt>
+        <dd>
+            <span>{{vm.bons_de_Reception.objet}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_Reception.fournisseur">Fournisseur</span></dt>
+        <dd>
+            <a ui-sref="fournisseur-detail({id:vm.bons_de_Reception.fournisseur.id})">{{vm.bons_de_Reception.fournisseur.nom}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_Reception.condition_de_reglement">Condition De Reglement</span></dt>
+        <dd>
+            <a ui-sref="condition-de-reglement-detail({id:vm.bons_de_Reception.condition_de_reglement.id})">{{vm.bons_de_Reception.condition_de_reglement.condition}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="bons-de-reception-detail.edit({id:vm.bons_de_Reception.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

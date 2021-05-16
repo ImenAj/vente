@@ -1,0 +1,64 @@
+
+<div>
+    <h2><span data-translate="pfeApp.facture.detail.title">Facture</span> {{vm.facture.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.facture.numeroFacture">Numero Facture</span></dt>
+        <dd>
+            <span>{{vm.facture.numeroFacture}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.dateFacture">Date Facture</span></dt>
+        <dd>
+            <span>{{vm.facture.dateFacture | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.designation">Designation</span></dt>
+        <dd>
+            <span>{{vm.facture.designation}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.quantite">Quantite</span></dt>
+        <dd>
+            <span>{{vm.facture.quantite}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.prix_UHT">Prix UHT</span></dt>
+        <dd>
+            <span>{{vm.facture.prix_UHT}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.referance">Referance</span></dt>
+        <dd>
+            <span>{{vm.facture.referance}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.piece_jointe">Piece Jointe</span></dt>
+        <dd>
+            <div ng-if="vm.facture.piece_jointe">
+                <a ng-click="vm.openFile(vm.facture.piece_jointeContentType, vm.facture.piece_jointe)">
+                    <img data-ng-src="{{'data:' + vm.facture.piece_jointeContentType + ';base64,' + vm.facture.piece_jointe}}" style="max-width: 100%;" alt="facture image"/>
+                </a>
+                {{vm.facture.piece_jointeContentType}}, {{vm.byteSize(vm.facture.piece_jointe)}}
+            </div>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.sortie">Sortie</span></dt>
+        <dd>
+            <span>{{vm.facture.sortie}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.client">Client</span></dt>
+        <dd>
+            <a ui-sref="client-detail({id:vm.facture.client.id})">{{vm.facture.client.nom}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.facture.bons_de_livraison">Bons De Livraison</span></dt>
+        <dd>
+            <a ui-sref="bons-de-livraison-detail({id:vm.facture.bons_de_livraison.id})">{{vm.facture.bons_de_livraison.reference}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="facture-detail.edit({id:vm.facture.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

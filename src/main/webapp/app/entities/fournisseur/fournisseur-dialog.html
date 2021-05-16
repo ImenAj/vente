@@ -1,0 +1,142 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myFournisseurLabel" data-translate="pfeApp.fournisseur.home.createOrEditLabel">Create or edit a Fournisseur</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.fournisseur.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.fournisseur.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.nom" for="field_nom">Nom</label>
+            <input type="text" class="form-control" name="nom" id="field_nom"
+                    ng-model="vm.fournisseur.nom"
+                    required/>
+            <div ng-show="editForm.nom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nom.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.prenom" for="field_prenom">Prenom</label>
+            <input type="text" class="form-control" name="prenom" id="field_prenom"
+                    ng-model="vm.fournisseur.prenom"
+                    required/>
+            <div ng-show="editForm.prenom.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.prenom.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.matricule_fiscal" for="field_matricule_fiscal">Matricule Fiscal</label>
+            <input type="text" class="form-control" name="matricule_fiscal" id="field_matricule_fiscal"
+                    ng-model="vm.fournisseur.matricule_fiscal"
+                    required/>
+            <div ng-show="editForm.matricule_fiscal.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.matricule_fiscal.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.raison_social" for="field_raison_social">Raison Social</label>
+            <input type="text" class="form-control" name="raison_social" id="field_raison_social"
+                    ng-model="vm.fournisseur.raison_social"
+                    required/>
+            <div ng-show="editForm.raison_social.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.raison_social.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.adress" for="field_adress">Adress</label>
+            <input type="text" class="form-control" name="adress" id="field_adress"
+                    ng-model="vm.fournisseur.adress"
+                    required/>
+            <div ng-show="editForm.adress.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.adress.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.ville" for="field_ville">Ville</label>
+            <input type="text" class="form-control" name="ville" id="field_ville"
+                    ng-model="vm.fournisseur.ville"
+                    required/>
+            <div ng-show="editForm.ville.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.ville.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.code_postal" for="field_code_postal">Code Postal</label>
+            <input type="number" class="form-control" name="code_postal" id="field_code_postal"
+                    ng-model="vm.fournisseur.code_postal"
+                    required/>
+            <div ng-show="editForm.code_postal.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.code_postal.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.code_postal.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.tel" for="field_tel">Tel</label>
+            <input type="number" class="form-control" name="tel" id="field_tel"
+                    ng-model="vm.fournisseur.tel"
+                    required/>
+            <div ng-show="editForm.tel.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.tel.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.tel.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.fax" for="field_fax">Fax</label>
+            <input type="number" class="form-control" name="fax" id="field_fax"
+                    ng-model="vm.fournisseur.fax"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.fournisseur.site_web" for="field_site_web">Site Web</label>
+            <input type="text" class="form-control" name="site_web" id="field_site_web"
+                    ng-model="vm.fournisseur.site_web"
+                    />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

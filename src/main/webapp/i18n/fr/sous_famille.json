@@ -1,0 +1,23 @@
+{
+    "pfeApp": {
+        "sous_famille" : {
+            "home": {
+                "title": "Sous_familles",
+                "createLabel": "Créer un nouveau Sous Famille",
+                "createOrEditLabel": "Créer ou éditer un Sous Famille",
+                "search": "Recherche pour Sous Famille"
+            },
+            "created": "Un nouveau Sous Famille a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Sous Famille avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Sous Famille avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Sous Famille {{ id }} ?"
+            },
+            "detail": {
+                "title": "Sous Famille"
+            },
+            "libelleSF": "Libelle SF",
+            "famille": "Famille"
+        }
+    }
+}

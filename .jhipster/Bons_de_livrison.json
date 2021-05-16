@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "condition_de_reglement",
+            "otherEntityName": "condition_de_reglement",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "condition"
+        },
+        {
+            "relationshipName": "client",
+            "otherEntityName": "client",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "nom"
+        },
+        {
+            "relationshipName": "mode_de_paiment",
+            "otherEntityName": "mode_de_paiment",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "mode"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date_livraison",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "objet",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170428120739",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "bons_de_livrison",
+    "pagination": "infinite-scroll"
+}

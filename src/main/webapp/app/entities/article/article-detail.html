@@ -1,0 +1,54 @@
+
+<div>
+    <h2><span data-translate="pfeApp.article.detail.title">Article</span> {{vm.article.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.article.referance">Referance</span></dt>
+        <dd>
+            <span>{{vm.article.referance}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.article.designation">Designation</span></dt>
+        <dd>
+            <span>{{vm.article.designation}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.article.prix_achat">Prix Achat</span></dt>
+        <dd>
+            <span>{{vm.article.prix_achat}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.article.unite">Unite</span></dt>
+        <dd>
+            <span>{{vm.article.unite}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.article.prix_vente">Prix Vente</span></dt>
+        <dd>
+            <span>{{vm.article.prix_vente}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.article.document">Document</span></dt>
+        <dd>
+            <div ng-if="vm.article.document">
+                <a ng-click="vm.openFile(vm.article.documentContentType, vm.article.document)" data-translate="entity.action.open">open</a>
+                {{vm.article.documentContentType}}, {{vm.byteSize(vm.article.document)}}
+            </div>
+        </dd>
+        <dt><span data-translate="pfeApp.article.quantite">Quantite</span></dt>
+        <dd>
+            <span>{{vm.article.quantite}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.article.sous_famille">Sous Famille</span></dt>
+        <dd>
+            <a ui-sref="sous-famille-detail({id:vm.article.sous_famille.id})">{{vm.article.sous_famille.libelleSF}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="article-detail.edit({id:vm.article.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

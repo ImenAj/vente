@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Depense.
+    -->
+    <changeSet id="20170428104439-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="operation_id"
+                                 baseTableName="depense"
+                                 constraintName="fk_depense_operation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="operation"/>
+
+        <addForeignKeyConstraint baseColumnNames="fournisseur_id"
+                                 baseTableName="depense"
+                                 constraintName="fk_depense_fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fournisseur"/>
+
+        <addForeignKeyConstraint baseColumnNames="compte_id"
+                                 baseTableName="depense"
+                                 constraintName="fk_depense_compte_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="compte"/>
+
+        <addForeignKeyConstraint baseColumnNames="mode_de_paiment_id"
+                                 baseTableName="depense"
+                                 constraintName="fk_depense_mode_de_paiment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mode_de_paiment"/>
+
+    </changeSet>
+</databaseChangeLog>

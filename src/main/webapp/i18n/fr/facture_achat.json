@@ -1,0 +1,26 @@
+{
+    "pfeApp": {
+        "facture_achat" : {
+            "home": {
+                "title": "Facture_achats",
+                "createLabel": "Créer un nouveau Facture Achat",
+                "createOrEditLabel": "Créer ou éditer un Facture Achat",
+                "search": "Recherche pour Facture Achat"
+            },
+            "created": "Un nouveau Facture Achat a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Facture Achat avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Facture Achat avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Facture Achat {{ id }} ?"
+            },
+            "detail": {
+                "title": "Facture Achat"
+            },
+            "referance": "Referance",
+            "date_facture": "Date Facture",
+            "echeance": "Echeance",
+            "montant": "Montant",
+            "piece_jointe": "Piece Jointe"
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "fournisseur",
+            "otherEntityName": "fournisseur",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "nom"
+        },
+        {
+            "relationshipName": "condition_de_reglement",
+            "otherEntityName": "condition_de_reglement",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "condition"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "dateReception",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "objet",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        }
+    ],
+    "changelogDate": "20170428113314",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "bons_de_reception",
+    "pagination": "infinite-scroll"
+}

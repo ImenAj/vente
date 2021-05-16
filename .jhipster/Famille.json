@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "libelleF",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170426140141",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "famille",
+    "pagination": "infinite-scroll"
+}

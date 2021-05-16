@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "mode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170426143524",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "mode_de_paiment",
+    "pagination": "infinite-scroll"
+}

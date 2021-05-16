@@ -1,0 +1,51 @@
+
+<div>
+    <h2><span data-translate="pfeApp.reglement.detail.title">Reglement</span> {{vm.reglement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.reglement.date_Reglement">Date Reglement</span></dt>
+        <dd>
+            <span>{{vm.reglement.date_Reglement | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.reglement.libelle">Libelle</span></dt>
+        <dd>
+            <span>{{vm.reglement.libelle}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.reglement.montant">Montant</span></dt>
+        <dd>
+            <span>{{vm.reglement.montant}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.reglement.depense">Depense</span></dt>
+        <dd>
+            <a ui-sref="depense-detail({id:vm.reglement.depense.id})">{{vm.reglement.depense.reference}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.reglement.mode_de_paiment">Mode De Paiment</span></dt>
+        <dd>
+            <a ui-sref="mode-de-paiment-detail({id:vm.reglement.mode_de_paiment.id})">{{vm.reglement.mode_de_paiment.mode}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.reglement.condition_de_reglement">Condition De Reglement</span></dt>
+        <dd>
+            <a ui-sref="condition-de-reglement-detail({id:vm.reglement.condition_de_reglement.id})">{{vm.reglement.condition_de_reglement.condition}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.reglement.article">Article</span></dt>
+        <dd>
+            <a ui-sref="article-detail({id:vm.reglement.article.id})">{{vm.reglement.article.referance}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.reglement.facture">Facture</span></dt>
+        <dd>
+            <a ui-sref="facture-detail({id:vm.reglement.facture.id})">{{vm.reglement.facture.numero_facture}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="reglement-detail.edit({id:vm.reglement.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

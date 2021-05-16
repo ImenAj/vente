@@ -1,0 +1,158 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDepenseLabel" data-translate="pfeApp.depense.home.createOrEditLabel">Create or edit a Depense</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.depense.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.depense.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.depense.date_depense" for="field_date_depense">Date Depense</label>
+                <div class="input-group">
+                    <input id="field_date_depense" type="text" class="form-control" name="date_depense" uib-datepicker-popup="{{dateformat}}" ng-model="vm.depense.date_depense" is-open="vm.datePickerOpenStatus.date_depense"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_depense')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_depense.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_depense.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.depense.date_echeance" for="field_date_echeance">Date Echeance</label>
+                <div class="input-group">
+                    <input id="field_date_echeance" type="text" class="form-control" name="date_echeance" uib-datepicker-popup="{{dateformat}}" ng-model="vm.depense.date_echeance" is-open="vm.datePickerOpenStatus.date_echeance"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_echeance')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_echeance.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_echeance.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.depense.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                    ng-model="vm.depense.reference"
+                    required/>
+            <div ng-show="editForm.reference.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.reference.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.depense.observation" for="field_observation">Observation</label>
+            <input type="text" class="form-control" name="observation" id="field_observation"
+                    ng-model="vm.depense.observation"
+                    required/>
+            <div ng-show="editForm.observation.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.observation.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setDocument($file, vm.depense)">
+            <label class="control-label" data-translate="pfeApp.depense.document" for="field_document">Document</label>
+            <div>
+                <div ng-if="vm.depense.document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.depense.documentContentType, vm.depense.document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.depense.documentContentType}}, {{vm.byteSize(vm.depense.document)}}</span>
+                    <button type="button" ng-click="vm.depense.document=null;vm.depense.documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setDocument($file, vm.depense)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="document" id="field_document"
+                    ng-model="vm.depense.document"
+                    required/>
+            <input type="hidden" class="form-control" name="documentContentType" id="field_documentContentType"
+                    ng-model="vm.depense.documentContentType" />
+            <div ng-show="editForm.document.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.document.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="pfeApp.depense.operation" for="field_operation">Operation</label>
+            <select class="form-control" id="field_operation" name="operation" ng-model="vm.depense.operation" ng-options="operation as operation.designation for operation in vm.operations track by operation.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.operation.$invalid">
+            <p class="help-block"
+                ng-show="editForm.operation.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.depense.fournisseur" for="field_fournisseur">Fournisseur</label>
+            <select class="form-control" id="field_fournisseur" name="fournisseur" ng-model="vm.depense.fournisseur" ng-options="fournisseur as fournisseur.nom for fournisseur in vm.fournisseurs track by fournisseur.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.fournisseur.$invalid">
+            <p class="help-block"
+                ng-show="editForm.fournisseur.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.depense.compte" for="field_compte">Compte</label>
+            <select class="form-control" id="field_compte" name="compte" ng-model="vm.depense.compte" ng-options="compte as compte.designation_compte for compte in vm.comptes track by compte.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.compte.$invalid">
+            <p class="help-block"
+                ng-show="editForm.compte.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.depense.mode_de_paiment" for="field_mode_de_paiment">Mode De Paiment</label>
+            <select class="form-control" id="field_mode_de_paiment" name="mode_de_paiment" ng-model="vm.depense.mode_de_paiment" ng-options="mode_de_paiment as mode_de_paiment.mode for mode_de_paiment in vm.mode_de_paiments track by mode_de_paiment.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.mode_de_paiment.$invalid">
+            <p class="help-block"
+                ng-show="editForm.mode_de_paiment.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+{
+    "pfeApp": {
+        "sousFamilleDepense" : {
+            "home": {
+                "title": "SousFamilleDepenses",
+                "createLabel": "Créer un nouveau Sous Famille Depense",
+                "createOrEditLabel": "Créer ou éditer un Sous Famille Depense",
+                "search": "Recherche pour Sous Famille Depense"
+            },
+            "created": "Un nouveau Sous Famille Depense a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Sous Famille Depense avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Sous Famille Depense avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Sous Famille Depense {{ id }} ?"
+            },
+            "detail": {
+                "title": "Sous Famille Depense"
+            },
+            "designation": "Designation",
+            "familleDepense": "Famille Depense"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "pfeApp": {
+        "bons_de_livraison" : {
+            "home": {
+                "title": "Bons De Livraisons",
+                "createLabel": "Create a new Bons De Livraison",
+                "createOrEditLabel": "Create or edit a Bons De Livraison",
+                "search": "Search for Bons De Livraison"
+            },
+            "created": "A new Bons De Livraison is created with identifier {{ param }}",
+            "updated": "A Bons De Livraison is updated with identifier {{ param }}",
+            "deleted": "A Bons De Livraison is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bons De Livraison {{ id }}?"
+            },
+            "detail": {
+                "title": "Bons De Livraison"
+            },
+            "designation": "Designation",
+            "quantite_commandees": "Quantite Commandees",
+            "date_livraison": "Date Livraison",
+            "objet": "Objet",
+            "piece_jointe": "Piece Jointe",
+            "reference": "Reference",
+            "article": "Article",
+            "commande": "Commande"
+        }
+    }
+}

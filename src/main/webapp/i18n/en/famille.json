@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "famille" : {
+            "home": {
+                "title": "Familles",
+                "createLabel": "Create a new Famille",
+                "createOrEditLabel": "Create or edit a Famille",
+                "search": "Search for Famille"
+            },
+            "created": "A new Famille is created with identifier {{ param }}",
+            "updated": "A Famille is updated with identifier {{ param }}",
+            "deleted": "A Famille is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Famille {{ id }}?"
+            },
+            "detail": {
+                "title": "Famille"
+            },
+            "libelleF": "Libelle F"
+        }
+    }
+}

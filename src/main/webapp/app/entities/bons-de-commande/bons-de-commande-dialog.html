@@ -1,0 +1,105 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBons_de_commandeLabel" data-translate="pfeApp.bons_de_commande.home.createOrEditLabel">Create or edit a Bons De Commande</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.bons_de_commande.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.bons_de_commande.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_commande.referance" for="field_referance">Referance</label>
+            <input type="text" class="form-control" name="referance" id="field_referance"
+                    ng-model="vm.bons_de_commande.referance"
+                    required/>
+            <div ng-show="editForm.referance.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.referance.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_commande.etat" for="field_etat">Etat</label>
+            <input type="text" class="form-control" name="etat" id="field_etat"
+                    ng-model="vm.bons_de_commande.etat"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_commande.site" for="field_site">Site</label>
+            <input type="text" class="form-control" name="site" id="field_site"
+                    ng-model="vm.bons_de_commande.site"
+                    />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_commande.date_commandeE" for="field_date_commandeE">Date Commande E</label>
+                <div class="input-group">
+                    <input id="field_date_commandeE" type="text" class="form-control" name="date_commandeE" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bons_de_commande.date_commandeE" is-open="vm.datePickerOpenStatus.date_commandeE"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_commandeE')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_commandeE.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_commandeE.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_commande.date_livraison_prevue" for="field_date_livraison_prevue">Date Livraison Prevue</label>
+                <div class="input-group">
+                    <input id="field_date_livraison_prevue" type="text" class="form-control" name="date_livraison_prevue" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bons_de_commande.date_livraison_prevue" is-open="vm.datePickerOpenStatus.date_livraison_prevue"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_livraison_prevue')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_livraison_prevue.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_livraison_prevue.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_commande.livre" for="field_livre">Livre</label>
+                <input type="checkbox" name="livre" id="field_livre"
+                          ng-model="vm.bons_de_commande.livre"/>
+            <div ng-show="editForm.livre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.livre.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="pfeApp.bons_de_commande.fournisseur" for="field_fournisseur">Fournisseur</label>
+            <select class="form-control" id="field_fournisseur" name="fournisseur" ng-model="vm.bons_de_commande.fournisseur" ng-options="fournisseur as fournisseur.nom for fournisseur in vm.fournisseurs track by fournisseur.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.fournisseur.$invalid">
+            <p class="help-block"
+                ng-show="editForm.fournisseur.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

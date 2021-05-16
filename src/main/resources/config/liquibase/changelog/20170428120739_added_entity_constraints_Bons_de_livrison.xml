@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Bons_de_livrison.
+    -->
+    <changeSet id="20170428120739-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="condition_de_reglement_id"
+                                 baseTableName="bons_de_livrison"
+                                 constraintName="fk_bons_de_livrison_condition_de_reglement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="condition_de_reglement"/>
+
+        <addForeignKeyConstraint baseColumnNames="client_id"
+                                 baseTableName="bons_de_livrison"
+                                 constraintName="fk_bons_de_livrison_client_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client"/>
+
+        <addForeignKeyConstraint baseColumnNames="mode_de_paiment_id"
+                                 baseTableName="bons_de_livrison"
+                                 constraintName="fk_bons_de_livrison_mode_de_paiment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mode_de_paiment"/>
+
+    </changeSet>
+</databaseChangeLog>

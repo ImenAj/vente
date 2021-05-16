@@ -1,0 +1,98 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDevisLabel" data-translate="pfeApp.devis.home.createOrEditLabel">Create or edit a Devis</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.devis.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.devis.id" readonly />
+        </div>
+        <div class="col-md-6">
+            <label class="control-label" data-translate="pfeApp.devis.numero_Devis" for="field_numero_Devis">Numero Devis</label>
+            <input type="number" class="form-control" name="numero_Devis" id="field_numero_Devis"
+                    ng-model="vm.devis.numero_Devis"
+                    required/>
+            <div ng-show="editForm.numero_Devis.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.numero_Devis.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.numero_Devis.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label" data-translate="pfeApp.devis.date_Devis" for="field_date_Devis">Date Devis</label>
+                <div class="input-group">
+                    <input id="field_date_Devis" type="text" class="form-control" name="date_Devis" uib-datepicker-popup="{{dateformat}}" ng-model="vm.devis.date_Devis" is-open="vm.datePickerOpenStatus.date_Devis"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_Devis')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_Devis.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_Devis.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label class="control-label" data-translate="pfeApp.devis.montant" for="field_montant">Montant</label>
+            <input type="number" class="form-control" name="montant" id="field_montant"
+                    ng-model="vm.devis.montant"
+                    required/>
+            <div ng-show="editForm.montant.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.montant.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.montant.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label data-translate="pfeApp.devis.client" for="field_client">Client</label>
+            <select class="form-control" id="field_client" name="client" ng-model="vm.devis.client" ng-options="client as client.nom for client in vm.clients track by client.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.client.$invalid">
+            <p class="help-block"
+                ng-show="editForm.client.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="col-md-12">
+            <label data-translate="pfeApp.devis.mode_de_paiment" for="field_mode_de_paiment">Mode De Paiment</label>
+            <select class="form-control" id="field_mode_de_paiment" name="mode_de_paiment" ng-model="vm.devis.mode_de_paiment" ng-options="mode_de_paiment as mode_de_paiment.mode for mode_de_paiment in vm.mode_de_paiments track by mode_de_paiment.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.mode_de_paiment.$invalid">
+            <p class="help-block"
+                ng-show="editForm.mode_de_paiment.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

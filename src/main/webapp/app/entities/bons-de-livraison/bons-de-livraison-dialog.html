@@ -1,0 +1,122 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBons_de_livraisonLabel" data-translate="pfeApp.bons_de_livraison.home.createOrEditLabel">Create or edit a Bons De Livraison</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.bons_de_livraison.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.bons_de_livraison.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_livraison.designation" for="field_designation">Designation</label>
+            <input type="text" class="form-control" name="designation" id="field_designation"
+                    ng-model="vm.bons_de_livraison.designation"
+                    required/>
+            <div ng-show="editForm.designation.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.designation.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_livraison.quantite_commandees" for="field_quantite_commandees">Quantite Commandees</label>
+            <input type="number" class="form-control" name="quantite_commandees" id="field_quantite_commandees"
+                    ng-model="vm.bons_de_livraison.quantite_commandees"
+                    required/>
+            <div ng-show="editForm.quantite_commandees.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.quantite_commandees.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.quantite_commandees.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_livraison.date_livraison" for="field_date_livraison">Date Livraison</label>
+                <div class="input-group">
+                    <input id="field_date_livraison" type="text" class="form-control" name="date_livraison" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bons_de_livraison.date_livraison" is-open="vm.datePickerOpenStatus.date_livraison"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_livraison')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_livraison.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_livraison.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_livraison.objet" for="field_objet">Objet</label>
+            <input type="text" class="form-control" name="objet" id="field_objet"
+                    ng-model="vm.bons_de_livraison.objet"
+                    />
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setPiece_jointe($file, vm.bons_de_livraison)">
+            <label class="control-label" data-translate="pfeApp.bons_de_livraison.piece_jointe" for="field_piece_jointe">Piece Jointe</label>
+            <div>
+                <div ng-if="vm.bons_de_livraison.piece_jointe" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.bons_de_livraison.piece_jointeContentType, vm.bons_de_livraison.piece_jointe)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.bons_de_livraison.piece_jointeContentType}}, {{vm.byteSize(vm.bons_de_livraison.piece_jointe)}}</span>
+                    <button type="button" ng-click="vm.bons_de_livraison.piece_jointe=null;vm.bons_de_livraison.piece_jointeContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setPiece_jointe($file, vm.bons_de_livraison)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="piece_jointe" id="field_piece_jointe"
+                    ng-model="vm.bons_de_livraison.piece_jointe"
+                    />
+            <input type="hidden" class="form-control" name="piece_jointeContentType" id="field_piece_jointeContentType"
+                    ng-model="vm.bons_de_livraison.piece_jointeContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_livraison.reference" for="field_reference">Reference</label>
+            <input type="text" class="form-control" name="reference" id="field_reference"
+                    ng-model="vm.bons_de_livraison.reference"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="pfeApp.bons_de_livraison.article" for="field_article">Article</label>
+            <select class="form-control" id="field_article" name="article" ng-model="vm.bons_de_livraison.article" ng-options="article as article.referance for article in vm.articles track by article.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.article.$invalid">
+            <p class="help-block"
+                ng-show="editForm.article.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.bons_de_livraison.commande" for="field_commande">Commande</label>
+            <select class="form-control" id="field_commande" name="commande" ng-model="vm.bons_de_livraison.commande" ng-options="commande as commande.reference for commande in vm.commandes track by commande.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

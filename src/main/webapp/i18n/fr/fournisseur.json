@@ -1,0 +1,31 @@
+{
+    "pfeApp": {
+        "fournisseur" : {
+            "home": {
+                "title": "Fournisseurs",
+                "createLabel": "Créer un nouveau Fournisseur",
+                "createOrEditLabel": "Créer ou éditer un Fournisseur",
+                "search": "Recherche pour Fournisseur"
+            },
+            "created": "Un nouveau Fournisseur a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Fournisseur avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Fournisseur avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Fournisseur {{ id }} ?"
+            },
+            "detail": {
+                "title": "Fournisseur"
+            },
+            "nom": "Nom",
+            "prenom": "Prenom",
+            "matricule_fiscal": "Matricule Fiscal",
+            "raison_social": "Raison Social",
+            "adress": "Adress",
+            "ville": "Ville",
+            "code_postal": "Code Postal",
+            "tel": "Tel",
+            "fax": "Fax",
+            "site_web": "Site Web"
+        }
+    }
+}

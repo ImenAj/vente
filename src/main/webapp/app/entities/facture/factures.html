@@ -1,0 +1,100 @@
+<div>
+    <h2 data-translate="pfeApp.facture.home.title">Factures</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="facture.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.facture.home.createLabel">
+                        Create new Facture
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.facture.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="numeroFacture"><span data-translate="pfeApp.facture.numeroFacture">Numero Facture</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dateFacture"><span data-translate="pfeApp.facture.dateFacture">Date Facture</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="designation"><span data-translate="pfeApp.facture.designation">Designation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantite"><span data-translate="pfeApp.facture.quantite">Quantite</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prix_UHT"><span data-translate="pfeApp.facture.prix_UHT">Prix UHT</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="referance"><span data-translate="pfeApp.facture.referance">Referance</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="piece_jointe"><span data-translate="pfeApp.facture.piece_jointe">Piece Jointe</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sortie"><span data-translate="pfeApp.facture.sortie">Sortie</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="client.nom"><span data-translate="pfeApp.facture.client">Client</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="bons_de_livraison.reference"><span data-translate="pfeApp.facture.bons_de_livraison">Bons De Livraison</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="facture in vm.factures track by facture.id">
+                    <td><a ui-sref="facture-detail({id:facture.id})">{{facture.id}}</a></td>
+                    <td>{{facture.numeroFacture}}</td>
+                        <td>{{facture.dateFacture | date:'mediumDate'}}</td>
+                    <td>{{facture.designation}}</td>
+                    <td>{{facture.quantite}}</td>
+                    <td>{{facture.prix_UHT}}</td>
+                    <td>{{facture.referance}}</td>
+                    <td>
+                        <a ng-if="facture.piece_jointe" ng-click="vm.openFile(facture.piece_jointeContentType, facture.piece_jointe)">
+                            <img data-ng-src="{{'data:' + facture.piece_jointeContentType + ';base64,' + facture.piece_jointe}}" style="max-height: 30px;" alt="facture image"/>
+                        </a>
+                        <span ng-if="facture.piece_jointe">{{facture.piece_jointeContentType}}, {{vm.byteSize(facture.piece_jointe)}}</span>
+                    </td>
+                    <td>{{facture.sortie}}</td>
+                    <td>
+                        <a ui-sref="client-detail({id:facture.client.id})">{{facture.client.nom}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="bons-de-livraison-detail({id:facture.bons_de_livraison.id})">{{facture.bons_de_livraison.reference}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="facture-detail({id:facture.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="facture.edit({id:facture.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="facture.delete({id:facture.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

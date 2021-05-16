@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <!--
+        Added the constraints for entity Reglement.
+    -->
+    <changeSet id="20170428114029-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="depense_id"
+                                 baseTableName="reglement"
+                                 constraintName="fk_reglement_depense_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="depense"/>
+
+        <addForeignKeyConstraint baseColumnNames="mode_de_paiment_id"
+                                 baseTableName="reglement"
+                                 constraintName="fk_reglement_mode_de_paiment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mode_de_paiment"/>
+
+        <addForeignKeyConstraint baseColumnNames="condition_de_reglement_id"
+                                 baseTableName="reglement"
+                                 constraintName="fk_reglement_condition_de_reglement_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="condition_de_reglement"/>
+
+        <addForeignKeyConstraint baseColumnNames="article_id"
+                                 baseTableName="reglement"
+                                 constraintName="fk_reglement_article_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="article"/>
+
+        <addForeignKeyConstraint baseColumnNames="facture_id"
+                                 baseTableName="reglement"
+                                 constraintName="fk_reglement_facture_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="facture"/>
+
+    </changeSet>
+</databaseChangeLog>

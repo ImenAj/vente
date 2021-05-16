@@ -1,0 +1,61 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "article",
+            "otherEntityName": "article",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "referance"
+        },
+        {
+            "relationshipName": "commande",
+            "otherEntityName": "commande",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "reference"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "designation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "quantite_commandees",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "date_livraison",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "objet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "piece_jointe",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170501112941",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "bons_de_livraison",
+    "pagination": "no"
+}

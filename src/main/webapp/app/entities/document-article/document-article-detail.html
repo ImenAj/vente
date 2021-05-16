@@ -1,0 +1,26 @@
+
+<div>
+    <h2><span data-translate="pfeApp.document_article.detail.title">Document Article</span> {{vm.document_article.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.document_article.path">Path</span></dt>
+        <dd>
+            <div ng-if="vm.document_article.path">
+                <a ng-click="vm.openFile(vm.document_article.pathContentType, vm.document_article.path)" data-translate="entity.action.open">open</a>
+                {{vm.document_article.pathContentType}}, {{vm.byteSize(vm.document_article.path)}}
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="document-article-detail.edit({id:vm.document_article.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

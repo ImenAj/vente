@@ -1,0 +1,142 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myArticleLabel" data-translate="pfeApp.article.home.createOrEditLabel">Create or edit a Article</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.article.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.article.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.article.referance" for="field_referance">Referance</label>
+            <input type="text" class="form-control" name="referance" id="field_referance"
+                    ng-model="vm.article.referance"
+                    required/>
+            <div ng-show="editForm.referance.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.referance.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.article.designation" for="field_designation">Designation</label>
+            <input type="text" class="form-control" name="designation" id="field_designation"
+                    ng-model="vm.article.designation"
+                    required/>
+            <div ng-show="editForm.designation.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.designation.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.article.prix_achat" for="field_prix_achat">Prix Achat</label>
+            <input type="number" class="form-control" name="prix_achat" id="field_prix_achat"
+                    ng-model="vm.article.prix_achat"
+                    required/>
+            <div ng-show="editForm.prix_achat.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.prix_achat.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.prix_achat.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.article.unite" for="field_unite">Unite</label>
+            <input type="number" class="form-control" name="unite" id="field_unite"
+                    ng-model="vm.article.unite"
+                    required/>
+            <div ng-show="editForm.unite.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.unite.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.unite.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.article.prix_vente" for="field_prix_vente">Prix Vente</label>
+            <input type="number" class="form-control" name="prix_vente" id="field_prix_vente"
+                    ng-model="vm.article.prix_vente"
+                    required/>
+            <div ng-show="editForm.prix_vente.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.prix_vente.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.prix_vente.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group" ngf-drop ngf-change="vm.setDocument($file, vm.article)">
+            <label class="control-label" data-translate="pfeApp.article.document" for="field_document">Document</label>
+            <div>
+                <div ng-if="vm.article.document" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.article.documentContentType, vm.article.document)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.article.documentContentType}}, {{vm.byteSize(vm.article.document)}}</span>
+                    <button type="button" ng-click="vm.article.document=null;vm.article.documentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class="btn btn-default btn-block"
+                        ngf-change="vm.setDocument($file, vm.article)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="document" id="field_document"
+                    ng-model="vm.article.document"
+                    />
+            <input type="hidden" class="form-control" name="documentContentType" id="field_documentContentType"
+                    ng-model="vm.article.documentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.article.quantite" for="field_quantite">Quantite</label>
+            <input type="number" class="form-control" name="quantite" id="field_quantite"
+                    ng-model="vm.article.quantite"
+                    required/>
+            <div ng-show="editForm.quantite.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.quantite.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.quantite.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="pfeApp.article.sous_famille" for="field_sous_famille">Sous Famille</label>
+            <select class="form-control" id="field_sous_famille" name="sous_famille" ng-model="vm.article.sous_famille" ng-options="sous_famille as sous_famille.libelleSF for sous_famille in vm.sous_familles track by sous_famille.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

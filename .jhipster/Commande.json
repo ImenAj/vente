@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "mode_de_paiment",
+            "otherEntityName": "mode_de_paiment",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "mode"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date_commande",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "designation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "piece_jointe",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170426144622",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "commande",
+    "pagination": "infinite-scroll"
+}

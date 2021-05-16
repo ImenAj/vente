@@ -1,0 +1,78 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "depense",
+            "otherEntityName": "depense",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "reference"
+        },
+        {
+            "relationshipName": "mode_de_paiment",
+            "otherEntityName": "mode_de_paiment",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "mode"
+        },
+        {
+            "relationshipName": "condition_de_reglement",
+            "otherEntityName": "condition_de_reglement",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "condition"
+        },
+        {
+            "relationshipName": "article",
+            "otherEntityName": "article",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "referance"
+        },
+        {
+            "relationshipName": "facture",
+            "otherEntityName": "facture",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "numero_facture"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "date_Reglement",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "libelle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "montant",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170428114029",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "reglement",
+    "pagination": "infinite-scroll"
+}

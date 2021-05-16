@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span data-translate="pfeApp.commandeClient.detail.title">Commande Client</span> {{vm.commandeClient.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.commandeClient.numeroCommande">Numero Commande</span></dt>
+        <dd>
+            <span>{{vm.commandeClient.numeroCommande}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.commandeClient.dateCommande">Date Commande</span></dt>
+        <dd>
+            <span>{{vm.commandeClient.dateCommande | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="commande-client-detail.edit({id:vm.commandeClient.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

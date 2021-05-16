@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span data-translate="pfeApp.bons_de_livrison.detail.title">Bons De Livrison</span> {{vm.bons_de_livrison.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.bons_de_livrison.date_livraison">Date Livraison</span></dt>
+        <dd>
+            <span>{{vm.bons_de_livrison.date_livraison | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_livrison.objet">Objet</span></dt>
+        <dd>
+            <span>{{vm.bons_de_livrison.objet}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_livrison.condition_de_reglement">Condition De Reglement</span></dt>
+        <dd>
+            <a ui-sref="condition-de-reglement-detail({id:vm.bons_de_livrison.condition_de_reglement.id})">{{vm.bons_de_livrison.condition_de_reglement.condition}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_livrison.client">Client</span></dt>
+        <dd>
+            <a ui-sref="client-detail({id:vm.bons_de_livrison.client.id})">{{vm.bons_de_livrison.client.nom}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_livrison.mode_de_paiment">Mode De Paiment</span></dt>
+        <dd>
+            <a ui-sref="mode-de-paiment-detail({id:vm.bons_de_livrison.mode_de_paiment.id})">{{vm.bons_de_livrison.mode_de_paiment.mode}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="bons-de-livrison-detail.edit({id:vm.bons_de_livrison.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "familleDepense",
+            "otherEntityName": "familleDepense",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "designation"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "designation",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170428111156",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "sous_famille_depense",
+    "pagination": "infinite-scroll"
+}

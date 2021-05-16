@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "document_article" : {
+            "home": {
+                "title": "Document Articles",
+                "createLabel": "Create a new Document Article",
+                "createOrEditLabel": "Create or edit a Document Article",
+                "search": "Search for Document Article"
+            },
+            "created": "A new Document Article is created with identifier {{ param }}",
+            "updated": "A Document Article is updated with identifier {{ param }}",
+            "deleted": "A Document Article is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Document Article {{ id }}?"
+            },
+            "detail": {
+                "title": "Document Article"
+            },
+            "path": "Path"
+        }
+    }
+}

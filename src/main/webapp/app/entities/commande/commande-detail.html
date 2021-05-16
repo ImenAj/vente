@@ -1,0 +1,42 @@
+
+<div>
+    <h2><span data-translate="pfeApp.commande.detail.title">Commande</span> {{vm.commande.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.commande.date_commande">Date Commande</span></dt>
+        <dd>
+            <span>{{vm.commande.date_commande | date:'medium'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.commande.designation">Designation</span></dt>
+        <dd>
+            <span>{{vm.commande.designation}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.commande.piece_jointe">Piece Jointe</span></dt>
+        <dd>
+            <div ng-if="vm.commande.piece_jointe">
+                <a ng-click="vm.openFile(vm.commande.piece_jointeContentType, vm.commande.piece_jointe)" data-translate="entity.action.open">open</a>
+                {{vm.commande.piece_jointeContentType}}, {{vm.byteSize(vm.commande.piece_jointe)}}
+            </div>
+        </dd>
+        <dt><span data-translate="pfeApp.commande.reference">Reference</span></dt>
+        <dd>
+            <span>{{vm.commande.reference}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.commande.mode_de_paiment">Mode De Paiment</span></dt>
+        <dd>
+            <a ui-sref="mode-de-paiment-detail({id:vm.commande.mode_de_paiment.id})">{{vm.commande.mode_de_paiment.mode}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="commande-detail.edit({id:vm.commande.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

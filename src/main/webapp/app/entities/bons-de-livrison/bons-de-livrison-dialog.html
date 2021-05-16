@@ -1,0 +1,84 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myBons_de_livrisonLabel" data-translate="pfeApp.bons_de_livrison.home.createOrEditLabel">Create or edit a Bons De Livrison</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.bons_de_livrison.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.bons_de_livrison.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_livrison.date_livraison" for="field_date_livraison">Date Livraison</label>
+                <div class="input-group">
+                    <input id="field_date_livraison" type="text" class="form-control" name="date_livraison" uib-datepicker-popup="{{dateformat}}" ng-model="vm.bons_de_livrison.date_livraison" is-open="vm.datePickerOpenStatus.date_livraison"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_livraison')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_livraison.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_livraison.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.bons_de_livrison.objet" for="field_objet">Objet</label>
+            <input type="text" class="form-control" name="objet" id="field_objet"
+                    ng-model="vm.bons_de_livrison.objet"
+                    />
+        </div>
+
+        <div class="form-group">
+            <label data-translate="pfeApp.bons_de_livrison.condition_de_reglement" for="field_condition_de_reglement">Condition De Reglement</label>
+            <select class="form-control" id="field_condition_de_reglement" name="condition_de_reglement" ng-model="vm.bons_de_livrison.condition_de_reglement" ng-options="condition_de_reglement as condition_de_reglement.condition for condition_de_reglement in vm.condition_de_reglements track by condition_de_reglement.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.condition_de_reglement.$invalid">
+            <p class="help-block"
+                ng-show="editForm.condition_de_reglement.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.bons_de_livrison.client" for="field_client">Client</label>
+            <select class="form-control" id="field_client" name="client" ng-model="vm.bons_de_livrison.client" ng-options="client as client.nom for client in vm.clients track by client.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.client.$invalid">
+            <p class="help-block"
+                ng-show="editForm.client.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.bons_de_livrison.mode_de_paiment" for="field_mode_de_paiment">Mode De Paiment</label>
+            <select class="form-control" id="field_mode_de_paiment" name="mode_de_paiment" ng-model="vm.bons_de_livrison.mode_de_paiment" ng-options="mode_de_paiment as mode_de_paiment.mode for mode_de_paiment in vm.mode_de_paiments track by mode_de_paiment.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.mode_de_paiment.$invalid">
+            <p class="help-block"
+                ng-show="editForm.mode_de_paiment.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

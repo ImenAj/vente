@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span data-translate="pfeApp.condition_de_reglement.detail.title">Condition De Reglement</span> {{vm.condition_de_reglement.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.condition_de_reglement.condition">Condition</span></dt>
+        <dd>
+            <span>{{vm.condition_de_reglement.condition}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="condition-de-reglement-detail.edit({id:vm.condition_de_reglement.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

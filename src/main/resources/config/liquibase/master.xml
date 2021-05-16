@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426135622_added_entity_Article.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426140053_added_entity_Sous_famille.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426140141_added_entity_Famille.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426140821_added_entity_Document_article.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426141100_added_entity_Client.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426141747_added_entity_Fournisseur.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426143524_added_entity_Mode_de_paiment.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426143616_added_entity_Condition_de_reglement.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426144622_added_entity_Commande.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428104439_added_entity_Depense.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428105818_added_entity_Operation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428110018_added_entity_Compte.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428111156_added_entity_SousFamilleDepense.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428111314_added_entity_FamilleDepense.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428113314_added_entity_Bons_de_Reception.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428114029_added_entity_Reglement.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428114304_added_entity_Avoirs.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428115335_added_entity_Facture.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428115512_added_entity_Devis.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428120256_added_entity_CommandeClient.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428120739_added_entity_Bons_de_livrison.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170501111837_added_entity_Bons_de_commande.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170501112941_added_entity_Bons_de_livraison.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170510204348_added_entity_Facture_achat.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170426140141_added_entity_constraints_Famille.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426140053_added_entity_constraints_Sous_famille.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426135622_added_entity_constraints_Article.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170426144622_added_entity_constraints_Commande.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428105818_added_entity_constraints_Operation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428104439_added_entity_constraints_Depense.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428111156_added_entity_constraints_SousFamilleDepense.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428113314_added_entity_constraints_Bons_de_Reception.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428114029_added_entity_constraints_Reglement.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428115512_added_entity_constraints_Devis.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428115335_added_entity_constraints_Facture.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428120739_added_entity_constraints_Bons_de_livrison.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170501111837_added_entity_constraints_Bons_de_commande.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170501112941_added_entity_constraints_Bons_de_livraison.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170428114304_added_entity_constraints_Avoirs.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

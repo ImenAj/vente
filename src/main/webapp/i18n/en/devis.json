@@ -1,0 +1,26 @@
+{
+    "pfeApp": {
+        "devis" : {
+            "home": {
+                "title": "Devis",
+                "createLabel": "Create a new Devis",
+                "createOrEditLabel": "Create or edit a Devis",
+                "search": "Search for Devis"
+            },
+            "created": "A new Devis is created with identifier {{ param }}",
+            "updated": "A Devis is updated with identifier {{ param }}",
+            "deleted": "A Devis is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Devis {{ id }}?"
+            },
+            "detail": {
+                "title": "Devis"
+            },
+            "numero_Devis": "Numero Devis",
+            "date_Devis": "Date Devis",
+            "montant": "Montant",
+            "client": "Client",
+            "mode_de_paiment": "Mode De Paiment"
+        }
+    }
+}

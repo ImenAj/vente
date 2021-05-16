@@ -1,0 +1,28 @@
+{
+    "pfeApp": {
+        "bons_de_commande" : {
+            "home": {
+                "title": "Bons De Commandes",
+                "createLabel": "Create a new Bons De Commande",
+                "createOrEditLabel": "Create or edit a Bons De Commande",
+                "search": "Search for Bons De Commande"
+            },
+            "created": "A new Bons De Commande is created with identifier {{ param }}",
+            "updated": "A Bons De Commande is updated with identifier {{ param }}",
+            "deleted": "A Bons De Commande is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Bons De Commande {{ id }}?"
+            },
+            "detail": {
+                "title": "Bons De Commande"
+            },
+            "referance": "Referance",
+            "etat": "Etat",
+            "site": "Site",
+            "date_commandeE": "Date Commande E",
+            "date_livraison_prevue": "Date Livraison Prevue",
+            "livre": "Livre",
+            "fournisseur": "Fournisseur"
+        }
+    }
+}

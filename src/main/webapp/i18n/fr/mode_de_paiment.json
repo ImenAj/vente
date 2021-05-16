@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "mode_de_paiment" : {
+            "home": {
+                "title": "Mode_de_paiments",
+                "createLabel": "Créer un nouveau Mode De Paiment",
+                "createOrEditLabel": "Créer ou éditer un Mode De Paiment",
+                "search": "Recherche pour Mode De Paiment"
+            },
+            "created": "Un nouveau Mode De Paiment a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Mode De Paiment avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Mode De Paiment avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Mode De Paiment {{ id }} ?"
+            },
+            "detail": {
+                "title": "Mode De Paiment"
+            },
+            "mode": "Mode"
+        }
+    }
+}

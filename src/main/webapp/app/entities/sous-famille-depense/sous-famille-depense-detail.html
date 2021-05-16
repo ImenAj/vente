@@ -1,0 +1,27 @@
+
+<div>
+    <h2><span data-translate="pfeApp.sousFamilleDepense.detail.title">Sous Famille Depense</span> {{vm.sousFamilleDepense.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.sousFamilleDepense.designation">Designation</span></dt>
+        <dd>
+            <span>{{vm.sousFamilleDepense.designation}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.sousFamilleDepense.familleDepense">Famille Depense</span></dt>
+        <dd>
+            <a ui-sref="famille-depense-detail({id:vm.sousFamilleDepense.familleDepense.id})">{{vm.sousFamilleDepense.familleDepense.designation}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="sous-famille-depense-detail.edit({id:vm.sousFamilleDepense.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

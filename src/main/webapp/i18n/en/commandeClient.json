@@ -1,0 +1,23 @@
+{
+    "pfeApp": {
+        "commandeClient" : {
+            "home": {
+                "title": "Commande Clients",
+                "createLabel": "Create a new Commande Client",
+                "createOrEditLabel": "Create or edit a Commande Client",
+                "search": "Search for Commande Client"
+            },
+            "created": "A new Commande Client is created with identifier {{ param }}",
+            "updated": "A Commande Client is updated with identifier {{ param }}",
+            "deleted": "A Commande Client is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Commande Client {{ id }}?"
+            },
+            "detail": {
+                "title": "Commande Client"
+            },
+            "numeroCommande": "Numero Commande",
+            "dateCommande": "Date Commande"
+        }
+    }
+}

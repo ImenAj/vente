@@ -1,0 +1,83 @@
+<div>
+    <h2 data-translate="pfeApp.bons_de_Reception.home.title">Bons De Receptions</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="bons-de-reception.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.bons_de_Reception.home.createLabel">
+                        Create new Bons De Reception
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.bons_de_Reception.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="dateReception"><span data-translate="pfeApp.bons_de_Reception.dateReception">Date Reception</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="objet"><span data-translate="pfeApp.bons_de_Reception.objet">Objet</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fournisseur.nom"><span data-translate="pfeApp.bons_de_Reception.fournisseur">Fournisseur</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="condition_de_reglement.condition"><span data-translate="pfeApp.bons_de_Reception.condition_de_reglement">Condition De Reglement</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="bons_de_Reception in vm.bons_de_Receptions track by bons_de_Reception.id">
+                    <td><a ui-sref="bons-de-reception-detail({id:bons_de_Reception.id})">{{bons_de_Reception.id}}</a></td>
+                        <td>{{bons_de_Reception.dateReception | date:'mediumDate'}}</td>
+                    <td>{{bons_de_Reception.objet}}</td>
+                    <td>
+                        <a ui-sref="fournisseur-detail({id:bons_de_Reception.fournisseur.id})">{{bons_de_Reception.fournisseur.nom}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="condition-de-reglement-detail({id:bons_de_Reception.condition_de_reglement.id})">{{bons_de_Reception.condition_de_reglement.condition}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="bons-de-reception-detail({id:bons_de_Reception.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="bons-de-reception.edit({id:bons_de_Reception.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="bons-de-reception.delete({id:bons_de_Reception.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

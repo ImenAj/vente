@@ -1,0 +1,97 @@
+<div>
+    <h2 data-translate="pfeApp.reglement.home.title">Reglements</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="reglement.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.reglement.home.createLabel">
+                        Create new Reglement
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.reglement.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_Reglement"><span data-translate="pfeApp.reglement.date_Reglement">Date Reglement</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="libelle"><span data-translate="pfeApp.reglement.libelle">Libelle</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="montant"><span data-translate="pfeApp.reglement.montant">Montant</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="depense.reference"><span data-translate="pfeApp.reglement.depense">Depense</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mode_de_paiment.mode"><span data-translate="pfeApp.reglement.mode_de_paiment">Mode De Paiment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="condition_de_reglement.condition"><span data-translate="pfeApp.reglement.condition_de_reglement">Condition De Reglement</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="article.referance"><span data-translate="pfeApp.reglement.article">Article</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="facture.numero_facture"><span data-translate="pfeApp.reglement.facture">Facture</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="reglement in vm.reglements track by reglement.id">
+                    <td><a ui-sref="reglement-detail({id:reglement.id})">{{reglement.id}}</a></td>
+                        <td>{{reglement.date_Reglement | date:'mediumDate'}}</td>
+                    <td>{{reglement.libelle}}</td>
+                    <td>{{reglement.montant}}</td>
+                    <td>
+                        <a ui-sref="depense-detail({id:reglement.depense.id})">{{reglement.depense.reference}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="mode-de-paiment-detail({id:reglement.mode_de_paiment.id})">{{reglement.mode_de_paiment.mode}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="condition-de-reglement-detail({id:reglement.condition_de_reglement.id})">{{reglement.condition_de_reglement.condition}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="article-detail({id:reglement.article.id})">{{reglement.article.referance}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="facture-detail({id:reglement.facture.id})">{{reglement.facture.numero_facture}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="reglement-detail({id:reglement.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="reglement.edit({id:reglement.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="reglement.delete({id:reglement.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

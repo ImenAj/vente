@@ -1,0 +1,84 @@
+<div>
+    <h2 data-translate="pfeApp.facture_achat.home.title">Facture Achats</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="facture-achat.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.facture_achat.home.createLabel">
+                        Create new Facture Achat
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.facture_achat.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="referance"><span data-translate="pfeApp.facture_achat.referance">Referance</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_facture"><span data-translate="pfeApp.facture_achat.date_facture">Date Facture</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="echeance"><span data-translate="pfeApp.facture_achat.echeance">Echeance</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="montant"><span data-translate="pfeApp.facture_achat.montant">Montant</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="piece_jointe"><span data-translate="pfeApp.facture_achat.piece_jointe">Piece Jointe</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="facture_achat in vm.facture_achats track by facture_achat.id">
+                    <td><a ui-sref="facture-achat-detail({id:facture_achat.id})">{{facture_achat.id}}</a></td>
+                    <td>{{facture_achat.referance}}</td>
+                        <td>{{facture_achat.date_facture | date:'mediumDate'}}</td>
+                        <td>{{facture_achat.echeance | date:'mediumDate'}}</td>
+                    <td>{{facture_achat.montant}}</td>
+                    <td>
+                        <a ng-if="facture_achat.piece_jointe" ng-click="vm.openFile(facture_achat.piece_jointeContentType, facture_achat.piece_jointe)" data-translate="entity.action.open">open</a>
+                        <span ng-if="facture_achat.piece_jointe">{{facture_achat.piece_jointeContentType}}, {{vm.byteSize(facture_achat.piece_jointe)}}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="facture-achat-detail({id:facture_achat.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="facture-achat.edit({id:facture_achat.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="facture-achat.delete({id:facture_achat.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

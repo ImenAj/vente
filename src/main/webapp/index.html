@@ -1,0 +1,833 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>pfe</title>
+    <meta name="description" content="">
+    <meta name="google" value="notranslate">
+    <meta name="viewport" content="width=device-width">
+    <link href="content/admin/bootstrap/css/main.css">
+    <link rel="stylesheet" href="content/admin/content/css/main.css">
+
+    <!-- endbuild -->
+    <title>Dashboard</title>
+    <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.6 -->
+  <link rel="stylesheet" href="content/admin/bootstrap/css/bootstrap.min.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="content/admin/dist/css/AdminLTE.min.css">
+
+  <link rel="stylesheet" href="content/admin/dist/css/skins/_all-skins.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="content/admin/plugins/iCheck/flat/blue.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="content/admin/plugins/morris/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="content/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="content/admin/plugins/datepicker/datepicker3.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="content/admin/plugins/daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="content/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+</head>
+
+<!-- integration -->
+<body class="hold-transition skin-blue-light"  ng-app="pfeApp" ng-strict-di   uib-collapse="vm.isNavbarCollapsed" ng-switch="vm.isAuthenticated()">
+<div class="wrapper">  
+  <header class="main-header">
+    <!-- Logo -->
+    <a href="index.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-lg"><img src="content/admin/dist/img/logo.png" class="user-image" alt="User Image"></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>ERP</b></span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <div ui-view="navbar" ng-cloak> </div>
+ 
+
+</header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" >
+  
+  
+  <!-- Sidebar user panel -->
+    <div class="user-panel">
+        <!-- <div class="pull-left image">
+          <img src="content/admin/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p></p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>--> 
+      <!-- search form -->
+      <!--  <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+        </div>
+      </form>-->
+      <!-- /.search form -->
+      
+      
+    <section class="sidebar" >
+      <!-- Sidebar user panel -->
+     
+     
+    
+      <!-- /.search form -->
+      <!-- sidebar menu: : style can be found in sidebar.less -->
+      <ul class="sidebar-menu"    >
+        <!-- li class="header"> Menu Principale</li-->
+        <li class="active treeview">
+          <a href="#">
+           <span class="fa fa-dashboard"></span>&nbsp;
+           <span>Tableau de bord</span>
+            <!--span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span-->
+          </a>
+     
+        </li>
+        <li class="treeview" >
+          <a href="#">
+              <span class="fa fa-files-o"></span>&nbsp;
+            <span>Ventes</span>
+            <span class="pull-right-container">
+             <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu" >
+          	<li ui-sref-active="active">
+                                <a ui-sref="devis" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.devis">Devis</span>
+                                </a>
+                            </li>
+             <li ui-sref-active="active">
+                                <a ui-sref="commande" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.commande">Commande</span>
+                                </a>
+                            </li>
+                     <li ui-sref-active="active">
+                                <a ui-sref="bons-de-livraison" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.bonsDeLivraison">Bons De Livraison</span>
+                                </a>
+                            </li>
+          			 <li ui-sref-active="active">
+                                <a ui-sref="facture" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.facture">Facture</span>
+                                </a>
+                            </li>
+           
+                             
+        
+      <li ui-sref-active="active">
+                                <a ui-sref="avoirs" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.avoirs">Facture Avoirs</span>
+                                </a>
+                            </li>  
+                            
+       <li ui-sref-active="active">
+                                <a ui-sref="reglement" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.reglement">Reglement</span>
+                                </a>
+                            </li>                       
+                                        
+          </ul>
+         
+	  
+        </li>
+       
+        <li class="treeview">
+          <a href="">
+           <span class="glyphicon glyphicon-barcode"></span>&nbsp; <span>Catalogue</span>
+            <span class="pull-right-container">
+           
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+               <li ui-sref-active="active">
+                                <a ui-sref="article" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span>Article</span>
+                                </a>
+                            </li>
+          
+                        <li ui-sref-active="active">
+                                <a ui-sref="famille" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span >Famille</span>
+                                </a>
+                            </li>
+                        <li ui-sref-active="active">
+                                <a ui-sref="sous-famille" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span>Sous Famille</span>
+                                </a>
+                            </li>
+                     
+         			 
+          					 
+          </ul>
+        </li>
+        
+   	<li class="treeview">
+          <a href="#">
+           <span class="fa fa-shopping-bag"></span>&nbsp;
+            <span>Achats</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          		 <li ui-sref-active="active">
+                                <a ui-sref="bons-de-commande" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.bonsDeCommande">Bons De Commande</span>
+                                </a>
+                            </li>
+         
+              <li ui-sref-active="active">
+                                <a ui-sref="facture-achat" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-circle-o"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.factureAchat">Facture Achat</span>
+                                </a>
+                            </li>               
+             
+			          
+          </ul>
+        </li>
+        
+     
+       		 <li class="treeview" ui-sref-active="active">
+                                <a ui-sref="fournisseur" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-user "></span>&nbsp;
+                                    <span data-translate="global.menu.entities.fournisseur">Fournisseur</span>
+                                </a>
+                            </li>
+           
+      
+        
+         <li ui-sref-active="active">
+                                <a ui-sref="client" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-users"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.client">Client</span>
+                                </a>
+                            </li>
+ 
+        <li class="treeview" ui-sref-active="active">
+                                <a ui-sref="depense" ng-click="vm.collapseNavbar()">
+                                    <span class="fa fa-th"></span>&nbsp;
+                                    <span data-translate="global.menu.entities.depense">Depense</span>
+                                    <!-- glyphicons-euro -->
+                                </a>
+                            </li>
+       
+       <li class="treeview" ui-sref-active="active">
+                        <a href="statisitique.html">
+                                <span class="fa fa-pie-chart"></span>&nbsp;
+                                <span>Consulter les statistiques</span>
+                            </a>
+        				</li>
+       
+          <ul class="treeview-menu">
+        </ul>
+        </li>
+        
+     <!--   <li class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Forms</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="content/AdminLTE-2.3.11/pages/forms/general.html"><i class="fa fa-circle-o"></i> General Elements</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-table"></i> <span>Tables</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="content/AdminLTE-2.3.11/pages/tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="pages/calendar.html">
+            <i class="fa fa-calendar"></i> <span>Calendar</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-red">3</small>
+              <small class="label pull-right bg-blue">17</small>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href="content/AdminLTE-2.3.11/pages/mailbox/mailbox.html">
+            <i class="fa fa-envelope"></i> <span>Mailbox</span>
+            <span class="pull-right-container">
+              <small class="label pull-right bg-yellow">12</small>
+              <small class="label pull-right bg-green">16</small>
+              <small class="label pull-right bg-red">5</small>
+            </span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Examples</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/404.html"><i class="fa fa-circle-o"></i> 404 Error</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
+            <li><a href="content/AdminLTE-2.3.11/pages/examples/pace.html"><i class="fa fa-circle-o"></i> Pace Page</a></li>
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-share"></i> <span>Multilevel</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+            <li>
+              <a href="#"><i class="fa fa-circle-o"></i> Level One
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Level Two
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                  </a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+          </ul>
+        </li> 
+        
+        -->
+        
+       <!-- <li><a href="content/admin/documentation/index.html"><i class="fa fa-book"></i> <span>Documentation</span></a></li> --> 
+       <!-- <li class="header">LABELS</li>
+        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
+        -->
+        
+      </ul>
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper"        >
+    <!-- Content Header (Page header) -->
+    <section class="content-header" >
+     <div class="well" ui-view="content" >
+            <!-- Angular views -->
+      </div>
+     <!-- <h1>
+        Dashboard
+        <small>Control panel</small>
+      </h1>-->
+      <!--ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+      </ol-->
+      
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+   
+      <!-- Small boxes (Stat box) -->
+     <div class="row">
+        <!--div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <!--div class="small-box bg-aqua">
+            <div class="inner">
+              <h3>150</h3>
+
+              <p>New Orders</p>
+            </div-->
+            <!--div class="icon">
+              <i class="ion ion-bag"></i>
+            </div-->
+            <!--a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a-->
+          </div>
+        
+        <!-- ./col -->
+        <!--div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <!--div class="small-box bg-green">
+            <!--div class="inner">
+              <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+              <p>Bounce Rate</p>
+            </div-->
+            <!--div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div-->
+            <!--a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a-->
+     
+        <!-- ./col -->
+        <!--div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <!--div class="small-box bg-yellow">
+            <!--div class="inner">
+              <h3>44</h3>
+
+              <p>User Registrations</p>
+            </div-->
+            <!--div class="icon">
+              <i class="ion ion-person-add"></i>
+            </div-->
+      
+        <!-- ./col -->
+        <!--div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <!--div class="small-box bg-red">
+            <!--div class="inner">
+              <h3>65</h3>
+
+              <p>Unique Visitors</p>
+            </div-->
+            <!--div class="icon">
+              <i class="ion ion-pie-graph"></i>
+            </div-->
+            <!--a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a-->
+         
+      
+        <!-- ./col -->
+      </div>  
+      <!-- /.row -->
+      <!-- Main row -->
+      <div class="row">
+        
+      </div>
+      <!-- /.row (main row) -->
+
+    
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <!--  div class="pull-right hidden-xs">
+      <b>Version</b> 2.3.8
+    </div>
+    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+    reserved.-->
+  </footer>
+
+ 
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+<!-- ./wrapper -->
+
+<!-- jQuery 2.2.3 -->
+<script src="content/admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script>
+<!-- Bootstrap 3.3.6 -->
+<script src="content/admin/bootstrap/js/bootstrap.min.js"></script>
+<!-- Morris.js charts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="content/admin/plugins/morris/morris.min.js"></script>
+<!-- Sparkline -->
+<script src="content/admin/plugins/sparkline/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="content/admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="content/admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="content/admin/plugins/knob/jquery.knob.js"></script>
+<!-- daterangepicker -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<script src="content/admin/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="content/admin/plugins/datepicker/bootstrap-datepicker.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="content/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script src="content/admin/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="content/admin/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="content/admin/dist/js/app.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="content/admin/dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="content/admin/dist/js/demo.js"></script>
+
+
+
+<!-- integration -->
+
+
+    <!-- build:js app/vendor.js -->
+    <!-- bower:js -->
+    <script src="angular.min.js"></script>
+<!-- shim is needed to support non-HTML5 FormData browsers (IE8-9)-->
+<script src="ng-file-upload-shim.min.js"></script>
+<script src="ng-file-upload.min.js"></script>
+    
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/messageformat/messageformat.js"></script>
+    <script src="bower_components/json3/lib/json3.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-cache-buster/angular-cache-buster.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-dynamic-locale/src/tmhDynamicLocale.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-interpolation-messageformat/angular-translate-interpolation-messageformat.js"></script>
+    <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+    <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js"></script>
+    <script type="text/javascript" src="bower_components/amcharts/dist/amcharts/amcharts.js"></script>
+<script type="text/javascript" src="bower_components/amcharts/dist/amcharts/serial.js"></script>
+
+<script type="text/javascript" src="bower_components/amcharts-angular/dist/amChartsDirective.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+
+    <!-- build:js app/app.js  -->
+    <!-- inject:js -->
+    <script src="app/app.module.js"></script>
+    <script src="app/services/user/user.service.js"></script>
+    <script src="app/services/profiles/profile.service.js"></script>
+    <script src="app/services/profiles/page-ribbon.directive.js"></script>
+    <script src="app/services/auth/sessions.service.js"></script>
+    <script src="app/services/auth/register.service.js"></script>
+    <script src="app/services/auth/principal.service.js"></script>
+    <script src="app/services/auth/password-reset-init.service.js"></script>
+    <script src="app/services/auth/password-reset-finish.service.js"></script>
+    <script src="app/services/auth/password.service.js"></script>
+    <script src="app/services/auth/has-authority.directive.js"></script>
+    <script src="app/services/auth/has-any-authority.directive.js"></script>
+    <script src="app/services/auth/auth.session.service.js"></script>
+    <script src="app/services/auth/auth.service.js"></script>
+    <script src="app/services/auth/activate.service.js"></script>
+    <script src="app/services/auth/account.service.js"></script>
+    <script src="app/layouts/navbar/navbar.controller.js"></script>
+    <script src="app/layouts/navbar/active-menu.directive.js"></script>
+    <script src="app/layouts/error/error.state.js"></script>
+    <script src="app/home/home.state.js"></script>
+    <script src="app/home/home.controller.js"></script>
+    <script src="app/entities/sous-famille-depense/sous-famille-depense-dialog.controller.js"></script>
+    <script src="app/entities/sous-famille-depense/sous-famille-depense-detail.controller.js"></script>
+    <script src="app/entities/sous-famille-depense/sous-famille-depense-delete-dialog.controller.js"></script>
+    <script src="app/entities/sous-famille-depense/sous-famille-depense.state.js"></script>
+    <script src="app/entities/sous-famille-depense/sous-famille-depense.service.js"></script>
+    <script src="app/entities/sous-famille-depense/sous-famille-depense.search.service.js"></script>
+    <script src="app/entities/sous-famille-depense/sous-famille-depense.controller.js"></script>
+    <script src="app/entities/sous-famille/sous-famille-dialog.controller.js"></script>
+    <script src="app/entities/sous-famille/sous-famille-detail.controller.js"></script>
+    <script src="app/entities/sous-famille/sous-famille-delete-dialog.controller.js"></script>
+    <script src="app/entities/sous-famille/sous-famille.state.js"></script>
+    <script src="app/entities/sous-famille/sous-famille.service.js"></script>
+    <script src="app/entities/sous-famille/sous-famille.search.service.js"></script>
+    <script src="app/entities/sous-famille/sous-famille.controller.js"></script>
+    <script src="app/entities/reglement/reglement-dialog.controller.js"></script>
+    <script src="app/entities/reglement/reglement-detail.controller.js"></script>
+    <script src="app/entities/reglement/reglement-delete-dialog.controller.js"></script>
+    <script src="app/entities/reglement/reglement.state.js"></script>
+    <script src="app/entities/reglement/reglement.service.js"></script>
+    <script src="app/entities/reglement/reglement.search.service.js"></script>
+    <script src="app/entities/reglement/reglement.controller.js"></script>
+    <script src="app/entities/operation/operation-dialog.controller.js"></script>
+    <script src="app/entities/operation/operation-detail.controller.js"></script>
+    <script src="app/entities/operation/operation-delete-dialog.controller.js"></script>
+    <script src="app/entities/operation/operation.state.js"></script>
+    <script src="app/entities/operation/operation.service.js"></script>
+    <script src="app/entities/operation/operation.search.service.js"></script>
+    <script src="app/entities/operation/operation.controller.js"></script>
+    <script src="app/entities/mode-de-paiment/mode-de-paiment-dialog.controller.js"></script>
+    <script src="app/entities/mode-de-paiment/mode-de-paiment-detail.controller.js"></script>
+    <script src="app/entities/mode-de-paiment/mode-de-paiment-delete-dialog.controller.js"></script>
+    <script src="app/entities/mode-de-paiment/mode-de-paiment.state.js"></script>
+    <script src="app/entities/mode-de-paiment/mode-de-paiment.service.js"></script>
+    <script src="app/entities/mode-de-paiment/mode-de-paiment.search.service.js"></script>
+    <script src="app/entities/mode-de-paiment/mode-de-paiment.controller.js"></script>
+    <script src="app/entities/fournisseur/fournisseur-dialog.controller.js"></script>
+    <script src="app/entities/fournisseur/fournisseur-detail.controller.js"></script>
+    <script src="app/entities/fournisseur/fournisseur-delete-dialog.controller.js"></script>
+    <script src="app/entities/fournisseur/fournisseur.state.js"></script>
+    <script src="app/entities/fournisseur/fournisseur.service.js"></script>
+    <script src="app/entities/fournisseur/fournisseur.search.service.js"></script>
+    <script src="app/entities/fournisseur/fournisseur.controller.js"></script>
+    <script src="app/entities/famille-depense/famille-depense-dialog.controller.js"></script>
+    <script src="app/entities/famille-depense/famille-depense-detail.controller.js"></script>
+    <script src="app/entities/famille-depense/famille-depense-delete-dialog.controller.js"></script>
+    <script src="app/entities/famille-depense/famille-depense.state.js"></script>
+    <script src="app/entities/famille-depense/famille-depense.service.js"></script>
+    <script src="app/entities/famille-depense/famille-depense.search.service.js"></script>
+    <script src="app/entities/famille-depense/famille-depense.controller.js"></script>
+    <script src="app/entities/famille/famille-dialog.controller.js"></script>
+    <script src="app/entities/famille/famille-detail.controller.js"></script>
+    <script src="app/entities/famille/famille-delete-dialog.controller.js"></script>
+    <script src="app/entities/famille/famille.state.js"></script>
+    <script src="app/entities/famille/famille.service.js"></script>
+    <script src="app/entities/famille/famille.search.service.js"></script>
+    <script src="app/entities/famille/famille.controller.js"></script>
+    <script src="app/entities/facture-achat/facture-achat-dialog.controller.js"></script>
+    <script src="app/entities/facture-achat/facture-achat-detail.controller.js"></script>
+    <script src="app/entities/facture-achat/facture-achat-delete-dialog.controller.js"></script>
+    <script src="app/entities/facture-achat/facture-achat.state.js"></script>
+    <script src="app/entities/facture-achat/facture-achat.service.js"></script>
+    <script src="app/entities/facture-achat/facture-achat.search.service.js"></script>
+    <script src="app/entities/facture-achat/facture-achat.controller.js"></script>
+    <script src="app/entities/facture/facture-dialog.controller.js"></script>
+    <script src="app/entities/facture/facture-detail.controller.js"></script>
+    <script src="app/entities/facture/facture-delete-dialog.controller.js"></script>
+    <script src="app/entities/facture/facture.state.js"></script>
+    <script src="app/entities/facture/facture.service.js"></script>
+    <script src="app/entities/facture/facture.search.service.js"></script>
+    <script src="app/entities/facture/facture.controller.js"></script>
+    <script src="app/entities/entity.state.js"></script>
+    <script src="app/entities/document-article/document-article-dialog.controller.js"></script>
+    <script src="app/entities/document-article/document-article-detail.controller.js"></script>
+    <script src="app/entities/document-article/document-article-delete-dialog.controller.js"></script>
+    <script src="app/entities/document-article/document-article.state.js"></script>
+    <script src="app/entities/document-article/document-article.service.js"></script>
+    <script src="app/entities/document-article/document-article.search.service.js"></script>
+    <script src="app/entities/document-article/document-article.controller.js"></script>
+    <script src="app/entities/devis/devis-dialog.controller.js"></script>
+    <script src="app/entities/devis/devis-detail.controller.js"></script>
+    <script src="app/entities/devis/devis-delete-dialog.controller.js"></script>
+    <script src="app/entities/devis/devis.state.js"></script>
+    <script src="app/entities/devis/devis.service.js"></script>
+    <script src="app/entities/devis/devis.search.service.js"></script>
+    <script src="app/entities/devis/devis.controller.js"></script>
+    <script src="app/entities/depense/depense-dialog.controller.js"></script>
+    <script src="app/entities/depense/depense-detail.controller.js"></script>
+    <script src="app/entities/depense/depense-delete-dialog.controller.js"></script>
+    <script src="app/entities/depense/depense.state.js"></script>
+    <script src="app/entities/depense/depense.service.js"></script>
+    <script src="app/entities/depense/depense.search.service.js"></script>
+    <script src="app/entities/depense/depense.controller.js"></script>
+    <script src="app/entities/condition-de-reglement/condition-de-reglement-dialog.controller.js"></script>
+    <script src="app/entities/condition-de-reglement/condition-de-reglement-detail.controller.js"></script>
+    <script src="app/entities/condition-de-reglement/condition-de-reglement-delete-dialog.controller.js"></script>
+    <script src="app/entities/condition-de-reglement/condition-de-reglement.state.js"></script>
+    <script src="app/entities/condition-de-reglement/condition-de-reglement.service.js"></script>
+    <script src="app/entities/condition-de-reglement/condition-de-reglement.search.service.js"></script>
+    <script src="app/entities/condition-de-reglement/condition-de-reglement.controller.js"></script>
+    <script src="app/entities/compte/compte-dialog.controller.js"></script>
+    <script src="app/entities/compte/compte-detail.controller.js"></script>
+    <script src="app/entities/compte/compte-delete-dialog.controller.js"></script>
+    <script src="app/entities/compte/compte.state.js"></script>
+    <script src="app/entities/compte/compte.service.js"></script>
+    <script src="app/entities/compte/compte.search.service.js"></script>
+    <script src="app/entities/compte/compte.controller.js"></script>
+    <script src="app/entities/commande-client/commande-client-dialog.controller.js"></script>
+    <script src="app/entities/commande-client/commande-client-detail.controller.js"></script>
+    <script src="app/entities/commande-client/commande-client-delete-dialog.controller.js"></script>
+    <script src="app/entities/commande-client/commande-client.state.js"></script>
+    <script src="app/entities/commande-client/commande-client.service.js"></script>
+    <script src="app/entities/commande-client/commande-client.search.service.js"></script>
+    <script src="app/entities/commande-client/commande-client.controller.js"></script>
+    <script src="app/entities/commande/commande-dialog.controller.js"></script>
+    <script src="app/entities/commande/commande-detail.controller.js"></script>
+    <script src="app/entities/commande/commande-delete-dialog.controller.js"></script>
+    <script src="app/entities/commande/commande.state.js"></script>
+    <script src="app/entities/commande/commande.service.js"></script>
+    <script src="app/entities/commande/commande.search.service.js"></script>
+    <script src="app/entities/commande/commande.controller.js"></script>
+    <script src="app/entities/client/client-dialog.controller.js"></script>
+    <script src="app/entities/client/client-detail.controller.js"></script>
+    <script src="app/entities/client/client-delete-dialog.controller.js"></script>
+    <script src="app/entities/client/client.state.js"></script>
+    <script src="app/entities/client/client.service.js"></script>
+    <script src="app/entities/client/client.search.service.js"></script>
+    <script src="app/entities/client/client.controller.js"></script>
+    <script src="app/entities/bons-de-reception/bons-de-reception-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-reception/bons-de-reception-detail.controller.js"></script>
+    <script src="app/entities/bons-de-reception/bons-de-reception-delete-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-reception/bons-de-reception.state.js"></script>
+    <script src="app/entities/bons-de-reception/bons-de-reception.service.js"></script>
+    <script src="app/entities/bons-de-reception/bons-de-reception.search.service.js"></script>
+    <script src="app/entities/bons-de-reception/bons-de-reception.controller.js"></script>
+    <script src="app/entities/bons-de-livrison/bons-de-livrison-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-livrison/bons-de-livrison-detail.controller.js"></script>
+    <script src="app/entities/bons-de-livrison/bons-de-livrison-delete-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-livrison/bons-de-livrison.state.js"></script>
+    <script src="app/entities/bons-de-livrison/bons-de-livrison.service.js"></script>
+    <script src="app/entities/bons-de-livrison/bons-de-livrison.search.service.js"></script>
+    <script src="app/entities/bons-de-livrison/bons-de-livrison.controller.js"></script>
+    <script src="app/entities/bons-de-livraison/bons-de-livraison-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-livraison/bons-de-livraison-detail.controller.js"></script>
+    <script src="app/entities/bons-de-livraison/bons-de-livraison-delete-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-livraison/bons-de-livraison.state.js"></script>
+    <script src="app/entities/bons-de-livraison/bons-de-livraison.service.js"></script>
+    <script src="app/entities/bons-de-livraison/bons-de-livraison.search.service.js"></script>
+    <script src="app/entities/bons-de-livraison/bons-de-livraison.controller.js"></script>
+    <script src="app/entities/bons-de-commande/bons-de-commande-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-commande/bons-de-commande-detail.controller.js"></script>
+    <script src="app/entities/bons-de-commande/bons-de-commande-delete-dialog.controller.js"></script>
+    <script src="app/entities/bons-de-commande/bons-de-commande.state.js"></script>
+    <script src="app/entities/bons-de-commande/bons-de-commande.service.js"></script>
+    <script src="app/entities/bons-de-commande/bons-de-commande.search.service.js"></script>
+    <script src="app/entities/bons-de-commande/bons-de-commande.controller.js"></script>
+    <script src="app/entities/avoirs/avoirs-dialog.controller.js"></script>
+    <script src="app/entities/avoirs/avoirs-detail.controller.js"></script>
+    <script src="app/entities/avoirs/avoirs-delete-dialog.controller.js"></script>
+    <script src="app/entities/avoirs/avoirs.state.js"></script>
+    <script src="app/entities/avoirs/avoirs.service.js"></script>
+    <script src="app/entities/avoirs/avoirs.search.service.js"></script>
+    <script src="app/entities/avoirs/avoirs.controller.js"></script>
+    <script src="app/entities/article/article-dialog.controller.js"></script>
+    <script src="app/entities/article/article-detail.controller.js"></script>
+    <script src="app/entities/article/article-delete-dialog.controller.js"></script>
+    <script src="app/entities/article/article.state.js"></script>
+    <script src="app/entities/article/article.service.js"></script>
+    <script src="app/entities/article/article.search.service.js"></script>
+    <script src="app/entities/article/article.controller.js"></script>
+    <script src="app/components/util/truncate-words.filter.js"></script>
+    <script src="app/components/util/truncate-characters.filter.js"></script>
+    <script src="app/components/util/sort-by.directive.js"></script>
+    <script src="app/components/util/sort.directive.js"></script>
+    <script src="app/components/util/parse-links.service.js"></script>
+    <script src="app/components/util/pagination-util.service.js"></script>
+    <script src="app/components/util/jhi-item-count.directive.js"></script>
+    <script src="app/components/util/date-util.service.js"></script>
+    <script src="app/components/util/data-util.service.js"></script>
+    <script src="app/components/util/capitalize.filter.js"></script>
+    <script src="app/components/util/base64.service.js"></script>
+    <script src="app/components/login/login.service.js"></script>
+    <script src="app/components/login/login.controller.js"></script>
+    <script src="app/components/language/language.service.js"></script>
+    <script src="app/components/language/language.filter.js"></script>
+    <script src="app/components/language/language.controller.js"></script>
+    <script src="app/components/language/language.constants.js"></script>
+    <script src="app/components/form/show-validation.directive.js"></script>
+    <script src="app/components/form/pagination.constants.js"></script>
+    <script src="app/components/form/minbytes.directive.js"></script>
+    <script src="app/components/form/maxbytes.directive.js"></script>
+    <script src="app/components/chart/chart.service.js"></script>
+    <script src="app/components/alert/alert-error.directive.js"></script>
+    <script src="app/components/alert/alert.service.js"></script>
+    <script src="app/components/alert/alert.directive.js"></script>
+    <script src="app/blocks/interceptor/notification.interceptor.js"></script>
+    <script src="app/blocks/interceptor/errorhandler.interceptor.js"></script>
+    <script src="app/blocks/interceptor/auth-expired.interceptor.js"></script>
+    <script src="app/blocks/handlers/translation.handler.js"></script>
+    <script src="app/blocks/handlers/state.handler.js"></script>
+    <script src="app/blocks/config/uib-pagination.config.js"></script>
+    <script src="app/blocks/config/uib-pager.config.js"></script>
+    <script src="app/blocks/config/translation-storage.provider.js"></script>
+    <script src="app/blocks/config/translation.config.js"></script>
+    <script src="app/blocks/config/localstorage.config.js"></script>
+    <script src="app/blocks/config/http.config.js"></script>
+    <script src="app/blocks/config/compile.config.js"></script>
+    <script src="app/blocks/config/alert.config.js"></script>
+    <script src="app/app.state.js"></script>
+    <script src="app/app.constants.js"></script>
+    <script src="app/admin/user-management/user-management-dialog.controller.js"></script>
+    <script src="app/admin/user-management/user-management-detail.controller.js"></script>
+    <script src="app/admin/user-management/user-management-delete-dialog.controller.js"></script>
+    <script src="app/admin/user-management/user-management.state.js"></script>
+    <script src="app/admin/user-management/user-management.controller.js"></script>
+    <script src="app/admin/metrics/metrics.state.js"></script>
+    <script src="app/admin/metrics/metrics.service.js"></script>
+    <script src="app/admin/metrics/metrics.modal.controller.js"></script>
+    <script src="app/admin/metrics/metrics.controller.js"></script>
+    <script src="app/admin/logs/logs.state.js"></script>
+    <script src="app/admin/logs/logs.service.js"></script>
+    <script src="app/admin/logs/logs.controller.js"></script>
+    <script src="app/admin/health/health.state.js"></script>
+    <script src="app/admin/health/health.service.js"></script>
+    <script src="app/admin/health/health.modal.controller.js"></script>
+    <script src="app/admin/health/health.controller.js"></script>
+    <script src="app/admin/docs/docs.state.js"></script>
+    <script src="app/admin/configuration/configuration.state.js"></script>
+    <script src="app/admin/configuration/configuration.service.js"></script>
+    <script src="app/admin/configuration/configuration.controller.js"></script>
+    <script src="app/admin/audits/audits.state.js"></script>
+    <script src="app/admin/audits/audits.service.js"></script>
+    <script src="app/admin/audits/audits.controller.js"></script>
+    <script src="app/admin/admin.state.js"></script>
+    <script src="app/account/social/social-register.controller.js"></script>
+    <script src="app/account/social/social.state.js"></script>
+    <script src="app/account/social/social.service.js"></script>
+    <script src="app/account/social/directive/social.directive.js"></script>
+    <script src="app/account/settings/settings.state.js"></script>
+    <script src="app/account/settings/settings.controller.js"></script>
+    <script src="app/account/sessions/sessions.state.js"></script>
+    <script src="app/account/sessions/sessions.controller.js"></script>
+    <script src="app/account/reset/request/reset.request.state.js"></script>
+    <script src="app/account/reset/request/reset.request.controller.js"></script>
+    <script src="app/account/reset/finish/reset.finish.state.js"></script>
+    <script src="app/account/reset/finish/reset.finish.controller.js"></script>
+    <script src="app/account/register/register.state.js"></script>
+    <script src="app/account/register/register.controller.js"></script>
+    <script src="app/account/password/password-strength-bar.directive.js"></script>
+    <script src="app/account/password/password.state.js"></script>
+    <script src="app/account/password/password.controller.js"></script>
+    <script src="app/account/activate/activate.state.js"></script>
+    <script src="app/account/activate/activate.controller.js"></script>
+    <script src="app/account/account.state.js"></script>
+    <!-- endinject -->
+    <!-- endbuild -->
+
+</body>
+</html>

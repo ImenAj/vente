@@ -1,0 +1,91 @@
+<div>
+    <h2 data-translate="pfeApp.fournisseur.home.title">Fournisseurs</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="fournisseur.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.fournisseur.home.createLabel">
+                        Create new Fournisseur
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.fournisseur.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="nom"><span data-translate="pfeApp.fournisseur.nom">Nom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prenom"><span data-translate="pfeApp.fournisseur.prenom">Prenom</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="matricule_fiscal"><span data-translate="pfeApp.fournisseur.matricule_fiscal">Matricule Fiscal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="raison_social"><span data-translate="pfeApp.fournisseur.raison_social">Raison Social</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="adress"><span data-translate="pfeApp.fournisseur.adress">Adress</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="ville"><span data-translate="pfeApp.fournisseur.ville">Ville</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="code_postal"><span data-translate="pfeApp.fournisseur.code_postal">Code Postal</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="tel"><span data-translate="pfeApp.fournisseur.tel">Tel</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fax"><span data-translate="pfeApp.fournisseur.fax">Fax</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="site_web"><span data-translate="pfeApp.fournisseur.site_web">Site Web</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="fournisseur in vm.fournisseurs track by fournisseur.id">
+                    <td><a ui-sref="fournisseur-detail({id:fournisseur.id})">{{fournisseur.id}}</a></td>
+                    <td>{{fournisseur.nom}}</td>
+                    <td>{{fournisseur.prenom}}</td>
+                    <td>{{fournisseur.matricule_fiscal}}</td>
+                    <td>{{fournisseur.raison_social}}</td>
+                    <td>{{fournisseur.adress}}</td>
+                    <td>{{fournisseur.ville}}</td>
+                    <td>{{fournisseur.code_postal}}</td>
+                    <td>{{fournisseur.tel}}</td>
+                    <td>{{fournisseur.fax}}</td>
+                    <td>{{fournisseur.site_web}}</td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="fournisseur-detail({id:fournisseur.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="fournisseur.edit({id:fournisseur.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="fournisseur.delete({id:fournisseur.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

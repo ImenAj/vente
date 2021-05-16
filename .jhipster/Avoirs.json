@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "facture",
+            "otherEntityName": "facture",
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": [
+                "required"
+            ],
+            "otherEntityField": "referance"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numero_factureAvoirs",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170428114304",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "avoirs",
+    "pagination": "infinite-scroll"
+}

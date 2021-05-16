@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "condition",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170426143616",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "condition_de_reglement",
+    "pagination": "infinite-scroll"
+}

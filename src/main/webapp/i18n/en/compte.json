@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "compte" : {
+            "home": {
+                "title": "Comptes",
+                "createLabel": "Create a new Compte",
+                "createOrEditLabel": "Create or edit a Compte",
+                "search": "Search for Compte"
+            },
+            "created": "A new Compte is created with identifier {{ param }}",
+            "updated": "A Compte is updated with identifier {{ param }}",
+            "deleted": "A Compte is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Compte {{ id }}?"
+            },
+            "detail": {
+                "title": "Compte"
+            },
+            "designation_compte": "Designation Compte"
+        }
+    }
+}

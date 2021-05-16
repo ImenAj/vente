@@ -1,0 +1,255 @@
+<div>
+    <h2 data-translate="pfeApp.article.home.title">Articles</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="article.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.article.home.createLabel">
+                        Create new Article
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.article.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+<style>
+  body {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana;
+  font-size: 15px;
+}
+
+select {
+  font-size: 15px;  
+  padding: 5px;
+}
+
+.selector {
+  background: #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 16px;
+  margin: 0;
+}
+
+#chartdiv {
+    width       : 100%;
+    height      : 300px;
+    font-size   : 11px;
+}   
+  </style>
+   
+  
+<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+<script src="https://www.amcharts.com/lib/3/plugins/dataloader/dataloader.min.js"></script>
+<p class="selector">
+  <select onchange="setDataSet(this.options[this.selectedIndex].value);">
+  <option value="api/articles/">charts</option>
+  <option value="https://s3-us-west-2.amazonaws.com/s.cdpn.io/218423/data2.json">Data Set #2</option>
+  <option value="https://s3-us-west-2.amazonaws.com/s.cdpn.io/218423/data3.json">Data Set #3</option>
+  </select>
+</p>
+<div id="chartdiv"></div>
+
+<script type="text/javascript">
+var chart = AmCharts.makeChart("chartdiv", {
+	  "type": "serial",
+	  "dataLoader": {
+	    "url": "/api/articles/"
+	  },
+	  "valueAxes": [{
+	    "gridColor": "#FFFFFF",
+	    "gridAlpha": 0.2,
+	    "dashLength": 0
+	  }],
+	  "gridAboveGraphs": true,
+	  "startDuration": 1,
+	  "graphs": [{
+	    "balloonText": "[[category]]: <b>[[value]]</b>",
+	    "fillAlphas": 0.8,
+	    "lineAlpha": 0.2,
+	    "type": "column",
+	    "valueField": "quantite"
+	  }],
+	  "chartCursor": {
+	    "categoryBalloonEnabled": false,
+	    "cursorAlpha": 0,
+	    "zoomable": false
+	  },
+	  "categoryField": "referance",
+	  "categoryAxis": {
+	    "gridPosition": "start",
+	    "gridAlpha": 0,
+	    "tickPosition": "start",
+	    "tickLength": 20
+	  }
+	});
+
+	function setDataSet(dataset_url) {
+	  AmCharts.loadFile(dataset_url, {}, function(data) {
+	  chart.dataProvider = AmCharts.parseJSON(data);
+	  chart.validateData();
+	  });
+	}
+
+</script>
+
+
+
+<head>
+    <title>Drawing Charts in AngularJS</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.1.1/Chart.min.js"></script>
+    
+    
+    <script src="angular-chart.js"></script>
+    
+    <script>
+
+    var myApp = angular.module('pfeApp', ["chart.js"]);
+
+    myApp.controller(
+        'ArticleController',
+            function ($scope, $http) {
+
+                $scope.requestData = function () {
+                	console.log("bonjour");
+                /*
+                    var arrData = new Array();
+                    var arrLabels = new Array();
+
+                    $http.get("/api/pieces/").success(function (data) {
+
+                        $.map(data, function (item) {
+                        	
+                            arrData.push(item.marque);
+                            arrLabels.push(item.quantite);
+                        });
+
+                        $scope.data = [];
+                        $scope.labels = [];
+
+                        $scope.data.push(arrData.slice(0));
+
+                        for (var i = 0; i < arrLabels.length; i++) {
+                            $scope.labels.push(arrLabels[i]);
+                        }
+                    }).error(function (status) {
+                        alert(status);
+                    });
+                    */
+                };
+
+                // NOW, ADD COLORS TO THE BARS.
+                $scope.colors = [
+                    {
+                        fillColor: 'rgba(161, 75, 201, 0.8)',
+                        strokeColor: 'rgba(161, 75, 201, 0.8)',
+                        highlightFill: 'rgba(161, 75, 201, 0.8)',
+                        highlightStroke: 'rgba(161, 75, 201, 0.8)'
+                    }
+                ];
+            });
+</script>
+
+    
+</head>
+<body>
+    <div ng-app="pfeApp" 
+        ng-controller="ArticleController" style="width:700px;">
+
+    <p><button ng-click="requestData()">Show Chart</button></p>
+
+        <canvas id="bar" 
+            class="chart chart-bar" 
+            data="data"
+            labels="labels"
+            colours="colors">
+        </canvas>
+    </div>
+</body>
+
+
+
+
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="referance"><span data-translate="pfeApp.article.referance">Referance</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="designation"><span data-translate="pfeApp.article.designation">Designation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prix_achat"><span data-translate="pfeApp.article.prix_achat">Prix Achat</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="unite"><span data-translate="pfeApp.article.unite">Unite</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="prix_vente"><span data-translate="pfeApp.article.prix_vente">Prix Vente</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="document"><span data-translate="pfeApp.article.document">Document</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="quantite"><span data-translate="pfeApp.article.quantite">Quantite</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="sous_famille.libelleSF"><span data-translate="pfeApp.article.sous_famille">Sous Famille</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="article in vm.articles track by article.id">
+                    <td><a ui-sref="article-detail({id:article.id})">{{article.id}}</a></td>
+                    <td>{{article.referance}}</td>
+                    <td>{{article.designation}}</td>
+                    <td>{{article.prix_achat}}</td>
+                    <td>{{article.unite}}</td>
+                    <td>{{article.prix_vente}}</td>
+                    <td>
+                        <a ng-if="article.document" ng-click="vm.openFile(article.documentContentType, article.document)" data-translate="entity.action.open">open</a>
+                        <span ng-if="article.document">{{article.documentContentType}}, {{vm.byteSize(article.document)}}</span>
+                    </td>
+                    <td>{{article.quantite}}</td>
+                    <td>
+                        <a ui-sref="sous-famille-detail({id:article.sous_famille.id})">{{article.sous_famille.libelleSF}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="article-detail({id:article.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="article.edit({id:article.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="article.delete({id:article.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

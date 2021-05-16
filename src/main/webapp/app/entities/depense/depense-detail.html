@@ -1,0 +1,58 @@
+
+<div>
+    <h2><span data-translate="pfeApp.depense.detail.title">Depense</span> {{vm.depense.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.depense.date_depense">Date Depense</span></dt>
+        <dd>
+            <span>{{vm.depense.date_depense | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.date_echeance">Date Echeance</span></dt>
+        <dd>
+            <span>{{vm.depense.date_echeance | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.reference">Reference</span></dt>
+        <dd>
+            <span>{{vm.depense.reference}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.observation">Observation</span></dt>
+        <dd>
+            <span>{{vm.depense.observation}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.document">Document</span></dt>
+        <dd>
+            <div ng-if="vm.depense.document">
+                <a ng-click="vm.openFile(vm.depense.documentContentType, vm.depense.document)" data-translate="entity.action.open">open</a>
+                {{vm.depense.documentContentType}}, {{vm.byteSize(vm.depense.document)}}
+            </div>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.operation">Operation</span></dt>
+        <dd>
+            <a ui-sref="operation-detail({id:vm.depense.operation.id})">{{vm.depense.operation.designation}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.fournisseur">Fournisseur</span></dt>
+        <dd>
+            <a ui-sref="fournisseur-detail({id:vm.depense.fournisseur.id})">{{vm.depense.fournisseur.nom}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.compte">Compte</span></dt>
+        <dd>
+            <a ui-sref="compte-detail({id:vm.depense.compte.id})">{{vm.depense.compte.designation_compte}}</a>
+        </dd>
+        <dt><span data-translate="pfeApp.depense.mode_de_paiment">Mode De Paiment</span></dt>
+        <dd>
+            <a ui-sref="mode-de-paiment-detail({id:vm.depense.mode_de_paiment.id})">{{vm.depense.mode_de_paiment.mode}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="depense-detail.edit({id:vm.depense.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,23 @@
+{
+    "pfeApp": {
+        "avoirs" : {
+            "home": {
+                "title": "Avoirs",
+                "createLabel": "Créer un nouveau Avoirs",
+                "createOrEditLabel": "Créer ou éditer un Avoirs",
+                "search": "Recherche pour Avoirs"
+            },
+            "created": "Un nouveau Avoirs a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Avoirs avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Avoirs avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Avoirs {{ id }} ?"
+            },
+            "detail": {
+                "title": "Avoirs"
+            },
+            "numero_factureAvoirs": "Numero Facture Avoirs",
+            "facture": "Facture"
+        }
+    }
+}

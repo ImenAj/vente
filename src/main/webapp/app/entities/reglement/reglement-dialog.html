@@ -1,0 +1,130 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myReglementLabel" data-translate="pfeApp.reglement.home.createOrEditLabel">Create or edit a Reglement</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.reglement.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.reglement.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.reglement.date_Reglement" for="field_date_Reglement">Date Reglement</label>
+                <div class="input-group">
+                    <input id="field_date_Reglement" type="text" class="form-control" name="date_Reglement" uib-datepicker-popup="{{dateformat}}" ng-model="vm.reglement.date_Reglement" is-open="vm.datePickerOpenStatus.date_Reglement"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('date_Reglement')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.date_Reglement.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.date_Reglement.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.reglement.libelle" for="field_libelle">Libelle</label>
+            <input type="text" class="form-control" name="libelle" id="field_libelle"
+                    ng-model="vm.reglement.libelle"
+                    required/>
+            <div ng-show="editForm.libelle.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.libelle.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="pfeApp.reglement.montant" for="field_montant">Montant</label>
+            <input type="number" class="form-control" name="montant" id="field_montant"
+                    ng-model="vm.reglement.montant"
+                    required/>
+            <div ng-show="editForm.montant.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.montant.$error.required" data-translate="entity.validation.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.montant.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="pfeApp.reglement.depense" for="field_depense">Depense</label>
+            <select class="form-control" id="field_depense" name="depense" ng-model="vm.reglement.depense" ng-options="depense as depense.reference for depense in vm.depenses track by depense.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.depense.$invalid">
+            <p class="help-block"
+                ng-show="editForm.depense.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.reglement.mode_de_paiment" for="field_mode_de_paiment">Mode De Paiment</label>
+            <select class="form-control" id="field_mode_de_paiment" name="mode_de_paiment" ng-model="vm.reglement.mode_de_paiment" ng-options="mode_de_paiment as mode_de_paiment.mode for mode_de_paiment in vm.mode_de_paiments track by mode_de_paiment.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.mode_de_paiment.$invalid">
+            <p class="help-block"
+                ng-show="editForm.mode_de_paiment.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.reglement.condition_de_reglement" for="field_condition_de_reglement">Condition De Reglement</label>
+            <select class="form-control" id="field_condition_de_reglement" name="condition_de_reglement" ng-model="vm.reglement.condition_de_reglement" ng-options="condition_de_reglement as condition_de_reglement.condition for condition_de_reglement in vm.condition_de_reglements track by condition_de_reglement.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.condition_de_reglement.$invalid">
+            <p class="help-block"
+                ng-show="editForm.condition_de_reglement.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.reglement.article" for="field_article">Article</label>
+            <select class="form-control" id="field_article" name="article" ng-model="vm.reglement.article" ng-options="article as article.referance for article in vm.articles track by article.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.article.$invalid">
+            <p class="help-block"
+                ng-show="editForm.article.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label data-translate="pfeApp.reglement.facture" for="field_facture">Facture</label>
+            <select class="form-control" id="field_facture" name="facture" ng-model="vm.reglement.facture" ng-options="facture as facture.numero_facture for facture in vm.factures track by facture.id" required>
+                <option value=""></option>
+            </select>
+        </div>
+        <div ng-show="editForm.facture.$invalid">
+            <p class="help-block"
+                ng-show="editForm.facture.$error.required" data-translate="entity.validation.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

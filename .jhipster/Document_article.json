@@ -1,0 +1,16 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "path",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "changelogDate": "20170426140821",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "document_article",
+    "pagination": "infinite-scroll"
+}

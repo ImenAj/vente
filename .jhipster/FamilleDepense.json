@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "designationFamille",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170428111314",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "famille_depense",
+    "pagination": "infinite-scroll"
+}

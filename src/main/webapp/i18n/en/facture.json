@@ -1,0 +1,31 @@
+{
+    "pfeApp": {
+        "facture" : {
+            "home": {
+                "title": "Factures",
+                "createLabel": "Create a new Facture",
+                "createOrEditLabel": "Create or edit a Facture",
+                "search": "Search for Facture"
+            },
+            "created": "A new Facture is created with identifier {{ param }}",
+            "updated": "A Facture is updated with identifier {{ param }}",
+            "deleted": "A Facture is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Facture {{ id }}?"
+            },
+            "detail": {
+                "title": "Facture"
+            },
+            "numeroFacture": "Numero Facture",
+            "dateFacture": "Date Facture",
+            "designation": "Designation",
+            "quantite": "Quantite",
+            "prix_UHT": "Prix UHT",
+            "referance": "Referance",
+            "piece_jointe": "Piece Jointe",
+            "sortie": "Sortie",
+            "client": "Client",
+            "bons_de_livraison": "Bons De Livraison"
+        }
+    }
+}

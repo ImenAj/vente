@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "mode_de_paiment" : {
+            "home": {
+                "title": "Mode De Paiments",
+                "createLabel": "Create a new Mode De Paiment",
+                "createOrEditLabel": "Create or edit a Mode De Paiment",
+                "search": "Search for Mode De Paiment"
+            },
+            "created": "A new Mode De Paiment is created with identifier {{ param }}",
+            "updated": "A Mode De Paiment is updated with identifier {{ param }}",
+            "deleted": "A Mode De Paiment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Mode De Paiment {{ id }}?"
+            },
+            "detail": {
+                "title": "Mode De Paiment"
+            },
+            "mode": "Mode"
+        }
+    }
+}

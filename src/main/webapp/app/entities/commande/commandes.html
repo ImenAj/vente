@@ -1,0 +1,89 @@
+<div>
+    <h2 data-translate="pfeApp.commande.home.title">Commandes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.commande.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                        <div class="col-xs-4 no-padding-right">
+                <button class="btn btn-primary" ui-sref="commande.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    
+                </button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+     <h2>Liste des commandes</h2>
+     <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_commande"><span data-translate="pfeApp.commande.date_commande">Date Commande</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="designation"><span data-translate="pfeApp.commande.designation">Designation</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="piece_jointe"><span data-translate="pfeApp.commande.piece_jointe">Piece Jointe</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="reference"><span data-translate="pfeApp.commande.reference">Reference</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="mode_de_paiment.mode"><span data-translate="pfeApp.commande.mode_de_paiment">Mode De Paiment</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="commande in vm.commandes track by commande.id" style="background-color: rgba(0, 2, 255, 0.37);>
+                    <td><a ui-sref="commande-detail({id:commande.id})">{{commande.id}}</a></td>
+                    <td>{{commande.date_commande | date:'medium'}}</td>
+                    <td>{{commande.designation}}</td>
+                    <td>
+                        <a ng-if="commande.piece_jointe" ng-click="vm.openFile(commande.piece_jointeContentType, commande.piece_jointe)" data-translate="entity.action.open">open</a>
+                        <span ng-if="commande.piece_jointe">{{commande.piece_jointeContentType}}, {{vm.byteSize(commande.piece_jointe)}}</span>
+                    </td>
+                    <td>{{commande.reference}}</td>
+                    <td>
+                        <a ui-sref="mode-de-paiment-detail({id:commande.mode_de_paiment.id})">{{commande.mode_de_paiment.mode}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="commande-detail({id:commande.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="commande.edit({id:commande.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="commande.delete({id:commande.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "pfeApp": {
+        "bons_de_Reception" : {
+            "home": {
+                "title": "Bons_de_Receptions",
+                "createLabel": "Créer un nouveau Bons De Reception",
+                "createOrEditLabel": "Créer ou éditer un Bons De Reception",
+                "search": "Recherche pour Bons De Reception"
+            },
+            "created": "Un nouveau Bons De Reception a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Bons De Reception avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Bons De Reception avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Bons De Reception {{ id }} ?"
+            },
+            "detail": {
+                "title": "Bons De Reception"
+            },
+            "dateReception": "Date Reception",
+            "objet": "Objet",
+            "fournisseur": "Fournisseur",
+            "condition_de_reglement": "Condition De Reglement"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "document_article" : {
+            "home": {
+                "title": "Document_articles",
+                "createLabel": "Créer un nouveau Document Article",
+                "createOrEditLabel": "Créer ou éditer un Document Article",
+                "search": "Recherche pour Document Article"
+            },
+            "created": "Un nouveau Document Article a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Document Article avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Document Article avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Document Article {{ id }} ?"
+            },
+            "detail": {
+                "title": "Document Article"
+            },
+            "path": "Path"
+        }
+    }
+}

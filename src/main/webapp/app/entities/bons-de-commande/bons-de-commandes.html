@@ -1,0 +1,87 @@
+<div>
+    <h2 data-translate="pfeApp.bons_de_commande.home.title">Bons De Commandes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="bons-de-commande.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.bons_de_commande.home.createLabel">
+                        Create new Bons De Commande
+                    </span>
+                </button>
+            </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.bons_de_commande.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="referance"><span data-translate="pfeApp.bons_de_commande.referance">Referance</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="etat"><span data-translate="pfeApp.bons_de_commande.etat">Etat</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="site"><span data-translate="pfeApp.bons_de_commande.site">Site</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_commandeE"><span data-translate="pfeApp.bons_de_commande.date_commandeE">Date Commande E</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="date_livraison_prevue"><span data-translate="pfeApp.bons_de_commande.date_livraison_prevue">Date Livraison Prevue</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="livre"><span data-translate="pfeApp.bons_de_commande.livre">Livre</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="fournisseur.nom"><span data-translate="pfeApp.bons_de_commande.fournisseur">Fournisseur</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="bons_de_commande in vm.bons_de_commandes track by bons_de_commande.id">
+                    <td><a ui-sref="bons-de-commande-detail({id:bons_de_commande.id})">{{bons_de_commande.id}}</a></td>
+                    <td>{{bons_de_commande.referance}}</td>
+                    <td>{{bons_de_commande.etat}}</td>
+                    <td>{{bons_de_commande.site}}</td>
+                        <td>{{bons_de_commande.date_commandeE | date:'mediumDate'}}</td>
+                        <td>{{bons_de_commande.date_livraison_prevue | date:'mediumDate'}}</td>
+                    <td>{{bons_de_commande.livre}}</td>
+                    <td>
+                        <a ui-sref="fournisseur-detail({id:bons_de_commande.fournisseur.id})">{{bons_de_commande.fournisseur.nom}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="bons-de-commande-detail({id:bons_de_commande.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="bons-de-commande.edit({id:bons_de_commande.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="bons-de-commande.delete({id:bons_de_commande.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+
+<div>
+    <h2><span data-translate="pfeApp.mode_de_paiment.detail.title">Mode De Paiment</span> {{vm.mode_de_paiment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.mode_de_paiment.mode">Mode</span></dt>
+        <dd>
+            <span>{{vm.mode_de_paiment.mode}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="mode-de-paiment-detail.edit({id:vm.mode_de_paiment.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

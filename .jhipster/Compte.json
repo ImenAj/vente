@@ -1,0 +1,18 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "designation_compte",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170428110018",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "compte",
+    "pagination": "infinite-scroll"
+}

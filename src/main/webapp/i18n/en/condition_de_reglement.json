@@ -1,0 +1,22 @@
+{
+    "pfeApp": {
+        "condition_de_reglement" : {
+            "home": {
+                "title": "Condition De Reglements",
+                "createLabel": "Create a new Condition De Reglement",
+                "createOrEditLabel": "Create or edit a Condition De Reglement",
+                "search": "Search for Condition De Reglement"
+            },
+            "created": "A new Condition De Reglement is created with identifier {{ param }}",
+            "updated": "A Condition De Reglement is updated with identifier {{ param }}",
+            "deleted": "A Condition De Reglement is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Condition De Reglement {{ id }}?"
+            },
+            "detail": {
+                "title": "Condition De Reglement"
+            },
+            "condition": "Condition"
+        }
+    }
+}

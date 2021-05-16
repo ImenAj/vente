@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span data-translate="pfeApp.bons_de_commande.detail.title">Bons De Commande</span> {{vm.bons_de_commande.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.bons_de_commande.referance">Referance</span></dt>
+        <dd>
+            <span>{{vm.bons_de_commande.referance}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_commande.etat">Etat</span></dt>
+        <dd>
+            <span>{{vm.bons_de_commande.etat}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_commande.site">Site</span></dt>
+        <dd>
+            <span>{{vm.bons_de_commande.site}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_commande.date_commandeE">Date Commande E</span></dt>
+        <dd>
+            <span>{{vm.bons_de_commande.date_commandeE | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_commande.date_livraison_prevue">Date Livraison Prevue</span></dt>
+        <dd>
+            <span>{{vm.bons_de_commande.date_livraison_prevue | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_commande.livre">Livre</span></dt>
+        <dd>
+            <span>{{vm.bons_de_commande.livre}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.bons_de_commande.fournisseur">Fournisseur</span></dt>
+        <dd>
+            <a ui-sref="fournisseur-detail({id:vm.bons_de_commande.fournisseur.id})">{{vm.bons_de_commande.fournisseur.nom}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="bons-de-commande-detail.edit({id:vm.bons_de_commande.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

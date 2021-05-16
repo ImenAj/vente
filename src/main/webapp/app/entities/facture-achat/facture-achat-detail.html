@@ -1,0 +1,42 @@
+
+<div>
+    <h2><span data-translate="pfeApp.facture_achat.detail.title">Facture Achat</span> {{vm.facture_achat.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span data-translate="pfeApp.facture_achat.referance">Referance</span></dt>
+        <dd>
+            <span>{{vm.facture_achat.referance}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture_achat.date_facture">Date Facture</span></dt>
+        <dd>
+            <span>{{vm.facture_achat.date_facture | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture_achat.echeance">Echeance</span></dt>
+        <dd>
+            <span>{{vm.facture_achat.echeance | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture_achat.montant">Montant</span></dt>
+        <dd>
+            <span>{{vm.facture_achat.montant}}</span>
+        </dd>
+        <dt><span data-translate="pfeApp.facture_achat.piece_jointe">Piece Jointe</span></dt>
+        <dd>
+            <div ng-if="vm.facture_achat.piece_jointe">
+                <a ng-click="vm.openFile(vm.facture_achat.piece_jointeContentType, vm.facture_achat.piece_jointe)" data-translate="entity.action.open">open</a>
+                {{vm.facture_achat.piece_jointeContentType}}, {{vm.byteSize(vm.facture_achat.piece_jointe)}}
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span data-translate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button" ui-sref="facture-achat-detail.edit({id:vm.facture_achat.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down" data-translate="entity.action.edit"> Edit</span>
+    </button>
+</div>

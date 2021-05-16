@@ -1,0 +1,99 @@
+<div>
+    <h2 data-translate="pfeApp.document_article.home.title">Document Articles</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="document-article.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="hidden-xs-down"  data-translate="pfeApp.document_article.home.createLabel">
+                        Create new Document Article
+                    </span>
+                </button>
+            </div>
+            
+            <div class="form-group" ngf-drop ngf-change="vm.setPath($file, vm.document_article)">
+            <label class="control-label" data-translate="pfeApp.document_article.path" for="field_path">Path</label>
+            <div>
+                <div ng-if="vm.document_article.path" class="help-block clearfix">
+                    <a class="pull-left" ng-click="vm.openFile(vm.document_article.pathContentType, vm.document_article.path)" data-translate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{vm.document_article.pathContentType}}, {{vm.byteSize(vm.document_article.path)}}</span>
+                    <button type="button" ng-click="vm.document_article.path=null;vm.document_article.pathContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+                <button type="button" ngf-select class=""
+                        ngf-change="vm.setPath($file, vm.document_article)" data-translate="entity.action.addblob">
+                    Add blob
+                </button>
+            </div>
+            <input type="hidden" class="form-control" name="path" id="field_path"
+                    ng-model="vm.document_article.path"
+                    />
+            <input type="hidden" class="form-control" name="pathContentType" id="field_pathContentType"
+                    ng-model="vm.document_article.pathContentType" />
+        </div>
+            <div class="col-xs-8 no-padding-right">
+                <form name="searchForm" class="form-inline">
+                    <div class="input-group pull-right" >
+                        <input type="text" class="form-control" ng-model="vm.searchQuery" id="searchQuery" placeholder="{{ 'pfeApp.document_article.home.search' | translate }}">
+                        <span  class="input-group-btn width-min" >
+                            <button class="btn btn-info" ng-click="vm.search(vm.searchQuery)">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                        <span class="input-group-btn width-min" ng-if="vm.currentSearch">
+                            <button class="btn btn-info" ng-click="vm.clear()">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+     <div class="table table-condensed table-striped table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr jh-sort="vm.predicate" ascending="vm.reverse" callback="vm.reset()">
+                    <th jh-sort-by="id"><span data-translate="global.field.id">ID</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th jh-sort-by="path"><span data-translate="pfeApp.document_article.path">Path</span> <span class="glyphicon glyphicon-sort"></span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll="vm.loadPage(vm.page + 1)" infinite-scroll-disabled="vm.page >= vm.links['last']">
+                <tr ng-repeat="document_article in vm.document_articles track by document_article.id">
+                    <td><a ui-sref="document-article-detail({id:document_article.id})">{{document_article.id}}</a></td>
+                    <td>
+                        <a ng-if="document_article.path" ng-click="vm.openFile(document_article.pathContentType, document_article.path)" data-translate="entity.action.open">open</a>
+                        <span ng-if="document_article.path">{{document_article.pathContentType}}, {{vm.byteSize(document_article.path)}}</span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="document-article-detail({id:document_article.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.view"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="document-article.edit({id:document_article.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.edit"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="document-article.delete({id:document_article.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down" data-translate="entity.action.delete"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

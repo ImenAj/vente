@@ -1,0 +1,25 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "famille",
+            "otherEntityName": "famille",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "libelleF"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "libelleSF",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170426140053",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "sous_famille",
+    "pagination": "infinite-scroll"
+}
