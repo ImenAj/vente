@@ -71,9 +71,25 @@ alter@~0.2.0:
   dependencies:
     stable "~0.1.3"
 
+amcharts-angular@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/amcharts-angular/-/amcharts-angular-1.1.0.tgz#a24c38b8878214104b2331c49efad475969c5198"
+
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular-nvd3@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/angular-nvd3/-/angular-nvd3-1.0.9.tgz#8d8a71487d9e5a122e8a5d0f5cd26ab0e491a6f5"
+  dependencies:
+    angular "^1.x"
+    d3 "^3.3"
+    nvd3 "^1.7.1"
+
+angular@^1.x:
+  version "1.8.2"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.8.2.tgz#5983bbb5a9fa63e213cb7749199e0d352de3a2f1"
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
@@ -1198,6 +1214,10 @@ currently-unhandled@^0.4.1:
 custom-event@~1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/custom-event/-/custom-event-1.0.1.tgz#5d02a46850adf1b4a317946a3928fccb5bfd0425"
+
+d3@^3.3:
+  version "3.5.17"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
 
 d@1:
   version "1.0.0"
@@ -4751,8 +4771,8 @@ merge-stream@^1.0.0:
     readable-stream "^2.0.1"
 
 merge@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/merge/-/merge-1.2.1.tgz#38bebf80c3220a8a487b6fcfb3941bb11720c145"
 
 micromatch@2.3.11, micromatch@^2.1.5, micromatch@^2.3.7:
   version "2.3.11"
@@ -5139,6 +5159,10 @@ num2fraction@^1.2.2:
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
+
+nvd3@^1.7.1:
+  version "1.8.6"
+  resolved "https://registry.yarnpkg.com/nvd3/-/nvd3-1.8.6.tgz#2d3eba74bf33363b5101ebf1d093c59a53ae73c4"
 
 oauth-sign@~0.8.0, oauth-sign@~0.8.1:
   version "0.8.2"
